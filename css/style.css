@@ -1,0 +1,203 @@
+/* .main-logo {
+  text-align: center;
+  margin-top: 230px;
+ 
+  font-size: 9rem;
+  font-weight: 600;
+}
+
+.main-logo p {
+  margin: auto;
+  max-width: 700px;
+}
+
+.would-i {
+  background-color: var(--dark-blue);
+  color: #fff;
+  display: inline-block;
+  transform: rotate(2deg);
+
+  padding: 30px 40px 15px 30px;
+}
+
+.lie {
+  background-color: var(--silver-gray);
+  color: var(--dark-blue);
+  display: inline-block;
+  font-size: 9.8rem;
+  padding: 40px 10px 15px 10px;
+  transform: rotate(-2deg);
+  margin-left: -10px;
+}
+
+.to {
+  background-color: var(--dark-yellow);
+  color: var(--dark-blue);
+  display: inline-block;
+  transform: rotate(-4deg);
+  padding: 25px 5px 5px 30px;
+  margin-top: -15px;
+}
+
+.you {
+  background-color: var(--secondary-blue);
+  color: var(--white-tint);
+  display: inline-block;
+  margin-top: -30px;
+  margin-left: -140px;
+  padding: 30px 50px 10px 170px;
+}
+
+.main-logo span:last-of-type {
+  background-color: var(--darker-gray);
+  color: var(--dark-red);
+  display: inline-block;
+  font-size: 9.5rem;
+  margin-left: -10px;
+
+  padding: 0 20px 15px 0;
+  transform: rotate(3deg);
+} */
+
+:root {
+  --dark-yellow: #db9a26;
+  --silver-gray: #d9d9d9;
+  --darker-gray: #cec5b4;
+  --font-gray: #c6c5c3;
+  --main-purple: #9c219e;
+  --darker-purple: #6c1973;
+  --dark-blue: #011e2e;
+  --secondary-blue: #1a6578;
+  --dark-red: #990a0e;
+  --white-tint: #eeedee;
+
+  --main-font: Helvetica;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: var(--main-font);
+  /*  */
+  height: 100vh;
+  /*  */
+}
+
+body {
+  /* 
+  background-color: var(--main-purple); 
+  */
+  background-image: url(/wilty/img/wilty.PNG);
+  background-position: center;
+  background-size: 135%;
+  background-repeat: no-repeat;
+  /*   background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; */
+}
+
+@media screen and (min-width: 576px) and (orientation: landscape) {
+  .demo {
+    font-weight: 600;
+    background-color: var(--dark-yellow);
+    color: var(--dark-blue);
+    font-size: 2rem;
+    display: inline-block;
+    padding-inline: 30px;
+    position: absolute;
+    top: 25px;
+    left: -25px;
+    transform: rotate(-45deg);
+  }
+
+  .game-container {
+    background-color: #1a6578e6;
+
+    /*  */
+    padding: 20px 40px 20px 40px;
+    /*  */
+    margin: auto;
+    max-width: 65%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    /*  */
+    gap: 20px;
+    /*  */
+
+    /*  */
+    margin-top: 97px;
+    height: 250px;
+    /*  */
+  }
+
+  .play-btn {
+    /*  */
+    width: 100%;
+    font-size: 4rem;
+    /*  */
+
+    font-weight: 600;
+    background-color: var(--dark-yellow);
+    color: var(--dark-blue);
+
+    border: none;
+    border-radius: 3px;
+    transition: all 0.2s;
+
+    /*  */
+    height: 140px;
+    /*  */
+  }
+
+  .game-container > div:last-child {
+    display: grid;
+    gap: 20px;
+    height: 100%;
+    grid-template-columns: 80fr 20fr;
+  }
+
+  .rules-btn {
+    background-color: var(--dark-red);
+    color: var(--darker-gray);
+    padding: 12px;
+
+    /*  */
+    font-size: 1.5rem;
+    font-weight: 600;
+    transition: all 0.2s;
+    border: none;
+    border-radius: 3px;
+    /*  */
+  }
+
+  .rules-btn:hover {
+    background-color: var(--silver-gray);
+    color: var(--dark-blue);
+  }
+
+  .details-btn {
+    background-color: var(--dark-blue);
+    color: var(--white-tint);
+    padding: 12px;
+
+    /*  */
+    font-size: 1.7rem;
+    font-weight: 600;
+    transition: all 0.2s;
+    border: none;
+    border-radius: 3px;
+    /*  */
+  }
+
+  .details-btn:hover {
+    background-color: var(--darker-gray);
+    color: var(--darker-purple);
+  }
+}
