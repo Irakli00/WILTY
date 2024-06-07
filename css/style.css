@@ -101,32 +101,89 @@ body {
   background-size: cover; */
 }
 
+.demo {
+  font-weight: 600;
+  background-color: var(--dark-yellow);
+  color: var(--dark-blue);
+  font-size: 2rem;
+  display: inline-block;
+  padding-inline: 30px;
+  position: absolute;
+}
+
+.game-container {
+  background-color: #1a6578e6;
+
+  max-width: 70%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.play-btn {
+  /*  */
+  width: 100%;
+  font-size: 4rem;
+  /*  */
+
+  font-weight: 600;
+  background-color: var(--dark-yellow);
+  color: var(--dark-blue);
+
+  border: none;
+  border-radius: 3px;
+  transition: all 0.2s;
+}
+
+.game-container > div:last-child {
+  display: grid;
+  height: 100%;
+}
+
+.rules-btn {
+  background-color: var(--dark-red);
+  color: var(--darker-gray);
+
+  /*  */
+  font-weight: 600;
+  transition: all 0.2s;
+  border: none;
+  /*  */
+}
+
+.rules-btn:hover {
+  background-color: var(--silver-gray);
+  color: var(--dark-blue);
+}
+
+.details-btn {
+  background-color: var(--dark-blue);
+  color: var(--white-tint);
+
+  /*  */
+  font-weight: 600;
+  transition: all 0.2s;
+  border: none;
+  /*  */
+}
+
+.details-btn:hover {
+  background-color: var(--darker-gray);
+  color: var(--darker-purple);
+}
+
 @media screen and (min-width: 576px) and (orientation: landscape) {
   .demo {
-    font-weight: 600;
-    background-color: var(--dark-yellow);
-    color: var(--dark-blue);
-    font-size: 2rem;
-    display: inline-block;
-    padding-inline: 30px;
-    position: absolute;
     top: 25px;
     left: -25px;
     transform: rotate(-45deg);
   }
 
   .game-container {
-    background-color: #1a6578e6;
-
     /*  */
     padding: 20px 40px 20px 40px;
     /*  */
-    margin: auto;
-    max-width: 65%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-
     /*  */
     gap: 20px;
     /*  */
@@ -139,65 +196,26 @@ body {
 
   .play-btn {
     /*  */
-    width: 100%;
-    font-size: 4rem;
-    /*  */
-
-    font-weight: 600;
-    background-color: var(--dark-yellow);
-    color: var(--dark-blue);
-
-    border: none;
-    border-radius: 3px;
-    transition: all 0.2s;
-
-    /*  */
     height: 140px;
     /*  */
   }
 
   .game-container > div:last-child {
-    display: grid;
     gap: 20px;
-    height: 100%;
     grid-template-columns: 80fr 20fr;
   }
 
   .rules-btn {
-    background-color: var(--dark-red);
-    color: var(--darker-gray);
-    padding: 12px;
-
     /*  */
     font-size: 1.5rem;
-    font-weight: 600;
-    transition: all 0.2s;
-    border: none;
     border-radius: 3px;
     /*  */
-  }
-
-  .rules-btn:hover {
-    background-color: var(--silver-gray);
-    color: var(--dark-blue);
   }
 
   .details-btn {
-    background-color: var(--dark-blue);
-    color: var(--white-tint);
-    padding: 12px;
-
     /*  */
     font-size: 1.7rem;
-    font-weight: 600;
-    transition: all 0.2s;
-    border: none;
     border-radius: 3px;
     /*  */
-  }
-
-  .details-btn:hover {
-    background-color: var(--darker-gray);
-    color: var(--darker-purple);
   }
 }
