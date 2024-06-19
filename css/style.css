@@ -84,7 +84,8 @@ html {
   font-size: 62.5%;
   font-family: var(--main-font);
   /*  */
-  height: 100vh;
+  background-color: var(--main-purple);
+  /* height: 100vh; */
   /*  */
 }
 
@@ -94,7 +95,7 @@ body {
   */
   background-image: url(/wilty/img/wilty.PNG);
   background-position: center;
-  background-size: 135%;
+  background-size: 145%;
   background-repeat: no-repeat;
   /*   background-position: center;
   background-repeat: no-repeat;
@@ -217,5 +218,66 @@ body {
     font-size: 1.7rem;
     border-radius: 3px;
     /*  */
+  }
+
+  .lobby-container {
+    background-color: #eeedeebc;
+    max-width: 70%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+
+    overflow-y: scroll;
+    margin-top: 97px;
+    height: 250px;
+    padding: 20px;
+    gap: 10px;
+  }
+
+  .lobby-container ion-icon {
+    height: 2.5rem;
+    width: 2.5rem;
+  }
+
+  .player,
+  .player--input--0 {
+    border: 2px solid var(--darker-gray);
+    background-color: var(--secondary-blue);
+    color: var(--white-tint);
+    /* border and background color are temp */
+    display: flex;
+    justify-content: space-between;
+
+    padding: 20px;
+  }
+
+  .player > div:first-child,
+  .player--input--0 > div:first-child {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.4rem;
+
+    gap: 1.5rem;
+  }
+
+  .player--input--0 div:last-child ion-icon {
+    border: none;
+    /*     height: 2.5rem;
+    width: 2.5rem; */
+    padding: 0.3rem;
+    cursor: pointer;
+    border-radius: 2px;
+  }
+
+  .player--input--0 div:last-child ion-icon:first-of-type {
+    background-color: var(--dark-yellow);
+    color: var(--dark-blue);
+    margin-right: 1rem;
+  }
+
+  .player--input--0 div:last-child ion-icon:nth-of-type(2) {
+    background-color: var(--dark-red);
+    color: var(--white-tint);
   }
 }

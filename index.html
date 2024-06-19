@@ -4,6 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <!--  -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <!--  -->
+
     <link rel="stylesheet" href="./css/style.css" />
     <title>Document</title>
   </head>
@@ -11,7 +22,7 @@
     <aside>
       <p class="demo">DEMO</p>
     </aside>
-    <section>
+    <!--     <section>
       <div class="game-container">
         <div>
           <button class="play-btn">PLAY</button>
@@ -21,7 +32,7 @@
           <button class="details-btn">?</button>
         </div>
       </div>
-    </section>
+    </section> -->
     <!--     <aside>
       <p>
         This game is a fan-made creation and is not affiliated with or endorsed
@@ -31,6 +42,28 @@
         purposes and out of admiration for the original show.
       </p>
     </aside> -->
+    <section>
+      <div class="lobby-container">
+        <div class="player">
+          <div>
+            <div><ion-icon name="person-outline"></ion-icon></div>
+            <div><p>Add a Player</p></div>
+          </div>
+          <div><ion-icon name="add-outline"></ion-icon></div>
+        </div>
+
+        <div class="player--input--0">
+          <div>
+            <ion-icon name="person-outline"></ion-icon>
+            <input type="text" />
+          </div>
+          <div>
+            <ion-icon name="checkmark-outline"></ion-icon>
+            <ion-icon name="close-outline"></ion-icon>
+          </div>
+        </div>
+      </div>
+    </section>
   </body>
 </html>
 <!--     <div class="main-logo">
