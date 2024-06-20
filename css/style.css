@@ -237,6 +237,11 @@ html {
     gap: 10px;
   }
 
+  .lobby-section > button {
+    display: block;
+    margin: 20px auto;
+  } /* latter */
+
   .lobby-container ion-icon {
     height: 2.5rem;
     width: 2.5rem;
@@ -295,9 +300,36 @@ html {
     color: var(--white-tint);
   }
 
+  @keyframes card-presented {
+    from {
+      transform: translate(1000px);
+    }
+    to {
+      transform: rotateX(180deg);
+    }
+  }
+
+  @keyframes card-revealed {
+    from {
+      transform: rotateX(180deg);
+    }
+    to {
+      transform: rotateX(0);
+      background-image: none;
+      background-color: #fff;
+      color: var(--dark-blue);
+    }
+  }
+
   .card-container {
-    background-image: radial-gradient(#eeedee, #ffffff);
-    max-width: 70%;
+    background-image: url(../img/card--blue.PNG);
+    background-size: 90%;
+    background-position: center;
+
+    /*  background-repeat: no-repeat; */
+    border: 2px solid var(--white-tint);
+
+    max-width: 60%;
     margin: 120px auto;
 
     display: grid;
@@ -310,5 +342,12 @@ html {
     border-radius: 2px;
 
     min-height: 200px;
+
+    animation: card-presented 2s forwards;
+    /* animation: card-revealed 2s forwards; */
+
+    /*  */
+    color: transparent;
+    /*  */
   }
 }
