@@ -22,18 +22,15 @@ const rulesBtnEvent = function (e) {
   }
 };
 
-const startGame = function () {
-  page.addEventListener("click", (e) => {
-    console.log(e.target.className);
-
-    startBtnEvent(e);
-    rulesBtnEvent(e);
-    detailsBtnEvent(e);
-  });
+export const startPageEvents = function (e) {
+  startBtnEvent(e);
+  rulesBtnEvent(e);
+  detailsBtnEvent(e);
 };
 
+/* 
 const init = function () {
   startGame();
 };
 
-init();
+init(); */

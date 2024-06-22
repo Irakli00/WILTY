@@ -33,18 +33,33 @@ export const htmls = {
     <button>Start a Game!</button>
   </section>
     `,
-  playerInput__0: `
-  <div class="player--input--0">
+
+  playerInputs: [
+    `  
+  <div class="player--input player--input--0">
     <div>
       <ion-icon name="person-outline"></ion-icon>
-      <input type="text" />
+      <input type="text" class="player--input--input" />
     </div>
     <div>
       <ion-icon name="checkmark-outline"></ion-icon>
       <ion-icon name="close-outline"></ion-icon>
     </div>
   </div>
-        `,
+  `,
+    `
+  <div class="player--input player--input--1">
+    <div>
+      <ion-icon name="person-outline"></ion-icon>
+      <input type="text" class="player--input--input" />
+    </div>
+    <div>
+      <ion-icon name="checkmark-outline"></ion-icon>
+      <ion-icon name="close-outline"></ion-icon>
+    </div>
+  </div>
+  `,
+  ],
   card: `
   <section>
     <div class="card-container">

@@ -88,7 +88,10 @@ html {
   /* height: 100vh; */
   /*  */
   background-image: url(/wilty/img/wilty.PNG);
+  background-repeat: no-repeat;
   background-size: 100%;
+
+  overflow: hidden;
 }
 
 /* body {
@@ -247,57 +250,75 @@ html {
     width: 2.5rem;
   }
 
-  .player--0,
-  .player--1,
-  .player--input--0 {
+  .player {
     display: flex;
     justify-content: space-between;
 
-    padding: 20px;
+    padding: 15px;
+    font-size: 1.5rem;
   }
 
-  .player--0,
-  .player--input--0 {
+  .player > div:first-child,
+  .player--input > div:first-child {
+    display: flex;
+    align-items: center;
+
+    gap: 15px;
+  }
+
+  .player--input {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+    font-size: 1.5rem;
+  }
+
+  .player--input > div:last-of-type {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 15px;
+  }
+
+  .player--input > div:last-child > ion-icon {
+    padding: 3px;
+    border-radius: 2px;
+  }
+
+  /* 0000 */
+  .player--0 {
     border: 2px solid var(--white-tint);
     background-color: var(--secondary-blue);
     color: var(--white-tint);
-    /* border and background color are temp */
   }
 
+  .player--input--0 > div:last-child > ion-icon:first-of-type {
+    background-color: var(--dark-yellow);
+    color: var(--main-purple);
+  }
+
+  .player--input--0 > div:last-child > ion-icon:last-of-type {
+    background-color: var(--dark-red);
+    color: var(--darker-gray);
+  }
+
+  /* 1111 */
   .player--1 {
     background-color: var(--greenish);
     border: 2px solid var(--dark-blue);
     color: #000000;
   }
 
-  .player--0 > div:first-child,
-  .player--1 > div:first-child,
-  .player--input--0 > div:first-child {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.4rem;
-
-    gap: 1.5rem;
+  .player--input--1 > div:last-child > ion-icon:first-of-type {
+    background-color: var(--darker-gray);
+    color: var(--dark-red);
   }
 
-  .player--input--0 div:last-child ion-icon {
-    border: none;
-    /*     height: 2.5rem;
-    width: 2.5rem; */
-    padding: 0.3rem;
-    cursor: pointer;
-  }
-
-  .player--input--0 div:last-child ion-icon:first-of-type {
-    background-color: var(--greenish);
-    color: var(--dark-blue);
-    margin-right: 1rem;
-  }
-
-  .player--input--0 div:last-child ion-icon:nth-of-type(2) {
-    background-color: var(--dark-red);
-    color: var(--white-tint);
+  .player--input--1 > div:last-child > ion-icon:last-of-type {
+    background-color: var(--darker-purple);
+    color: var(--font-gray);
   }
 
   @keyframes card-presented {
@@ -330,7 +351,7 @@ html {
     border: 2px solid var(--white-tint);
 
     max-width: 60%;
-    margin: 120px auto;
+    margin: 130px auto;
 
     display: grid;
     justify-content: center;

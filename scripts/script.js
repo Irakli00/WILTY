@@ -4,7 +4,7 @@ import { lobbyEvents } from "./lobby.js";
 
 const startGame = function () {
   page.addEventListener("click", (e) => {
-    console.log(`-*-*-*-* ${e.target.className} *-*-*-*-`);
+    console.log(`-*-*-*-* ${e.target?.classList} *-*-*-*-`);
 
     startPageEvents(e);
     lobbyEvents(e);
