@@ -42,7 +42,7 @@ export const htmls = {
       <input type="text" class="player--input--input" />
     </div>
     <div>
-      <ion-icon name="checkmark-outline"></ion-icon>
+      <ion-icon name="checkmark-outline" class="accept-input accept-input--0"></ion-icon>
       <ion-icon name="close-outline"></ion-icon>
     </div>
   </div>
@@ -54,7 +54,7 @@ export const htmls = {
       <input type="text" class="player--input--input" />
     </div>
     <div>
-      <ion-icon name="checkmark-outline"></ion-icon>
+      <ion-icon name="checkmark-outline" class="accept-input accept-input--1"></ion-icon>
       <ion-icon name="close-outline"></ion-icon>
     </div>
   </div>
@@ -82,6 +82,4 @@ const fakeStories = [
   `I've got disqualified from school talent-show, because my performance was "terrifying"`,
 ];
 
-const trueStories = {
-  name: "story",
-};
+export const players = [];
