@@ -12,17 +12,18 @@ export const htmls = {
     </p>
   </aside>
   `,
+
   lobby: `
   <section class="lobby-section">
     <div class="lobby-container">
-      <div class="player player--0">
+    <div class="player player-tobe player--0">
         <div>
           <div><ion-icon name="person-outline"></ion-icon></div>
           <div><p>Add a Player</p></div>
         </div>
         <div><ion-icon name="add-outline"></ion-icon></div>
       </div>
-      <div class="player player--1">
+      <div class="player player-tobe player--1">
         <div>
           <div><ion-icon name="person-outline"></ion-icon></div>
           <div><p>Add a Player</p></div>

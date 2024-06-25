@@ -3,7 +3,7 @@ import { htmls, page, players } from "./assets.js";
 const inputReveal = function (e) {
   const players = document.querySelectorAll(".player");
 
-  const targetToChange = e.target.closest(".player");
+  const targetToChange = e.target.closest(".player-tobe");
 
   if (targetToChange && targetToChange.innerHTML) {
     players.forEach((el, i) => {
@@ -18,29 +18,47 @@ const inputReveal = function (e) {
   } //bro idunno don't touch it
 };
 
-const inputValueProcess = function (e) {
-  /* console.log(inputAcceptBtn.parentElement.parentElement); */
+const inputValueAccept = function (e) {
   const inputAcceptBtn = e.target.closest(".accept-input");
 
+  const inputValue = inputAcceptBtn?.parentElement.parentElement.querySelector(
+    ".player--input--input"
+  ).value; //lol
+
   if (inputAcceptBtn) {
-    const inputValue = inputAcceptBtn.parentElement.parentElement.querySelector(
-      ".player--input--input"
-    ).value; //lol
-
-    console.log(inputValue);
-
     const player = {
-      name: inputValue,
+      name: `${inputValue}`,
       story: "",
     };
 
     players.push(player);
 
     console.log(players);
+
+    /* see if repeats */
+  }
+};
+
+const displayPlayer = function (e) {
+  const inputAcceptBtn = e.target.closest(".accept-input");
+  const container = page.querySelectorAll(".player");
+
+  if (inputAcceptBtn) {
+    const i =
+      +inputAcceptBtn.parentElement.parentElement.classList[1].slice(-1);
+
+    console.log(container[i]);
+
+    container[i].innerHTML = `<div>
+    <div><ion-icon name="person-outline"></ion-icon></div>
+    <div><p>${players[i].name}</p></div>`;
+
+    container[i].classList.remove("player-tobe");
   }
 };
 
 export const lobbyEvents = function (e) {
   inputReveal(e);
-  inputValueProcess(e);
+  inputValueAccept(e);
+  displayPlayer(e);
 };
