@@ -107,6 +107,27 @@ html {
   background-size: cover;
 } */
 
+@keyframes card-presented {
+  from {
+    transform: translate(1000px);
+  }
+  to {
+    transform: rotateX(180deg);
+  }
+}
+
+@keyframes card-revealed {
+  from {
+    transform: rotateX(180deg);
+  }
+  to {
+    transform: rotateX(0);
+    background-image: none;
+    background-color: #fff;
+    color: var(--dark-blue);
+  }
+}
+
 .demo {
   font-weight: 600;
   background-color: var(--dark-yellow);
@@ -183,6 +204,41 @@ html {
 .card-story {
   display: inline-block;
   padding-inline: 1rem;
+}
+
+.card-section {
+  display: flex;
+  flex-direction: column;
+  margin-top: 40px;
+  gap: 20px;
+}
+
+.countdown {
+  position: absolute;
+  font-size: 3rem;
+  color: var(--dark-blue);
+  background-color: #ffffffc8;
+  padding-inline: 5px;
+  border-radius: 2px;
+  top: 15px;
+  left: 30px;
+}
+
+.player--name {
+  min-width: 25%;
+  height: 50px;
+  margin: auto;
+  float: left;
+
+  display: grid;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 2px;
+
+  font-size: 3rem;
+  color: var(--secondary-blue);
+  background-color: var(--white-tint);
 }
 
 @media screen and (min-width: 576px) and (orientation: landscape) {
@@ -326,27 +382,6 @@ html {
     color: var(--font-gray);
   }
 
-  @keyframes card-presented {
-    from {
-      transform: translate(1000px);
-    }
-    to {
-      transform: rotateX(180deg);
-    }
-  }
-
-  @keyframes card-revealed {
-    from {
-      transform: rotateX(180deg);
-    }
-    to {
-      transform: rotateX(0);
-      background-image: none;
-      background-color: #fff;
-      color: var(--dark-blue);
-    }
-  }
-
   .card-container {
     background-image: url(../img/card--blue.PNG);
     background-size: 90%;
@@ -355,8 +390,8 @@ html {
     /*  background-repeat: no-repeat; */
     border: 2px solid var(--white-tint);
 
-    max-width: 60%;
-    margin: 130px auto;
+    width: 60%;
+    margin: 0 auto;
 
     display: grid;
     justify-content: center;

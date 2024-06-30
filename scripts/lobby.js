@@ -31,7 +31,11 @@ const inputValueAccept = function (e) {
       story: "",
     };
 
-    players.push(player);
+    /*   players.push(player); */
+    const i =
+      +inputAcceptBtn.parentElement.parentElement.classList[1].slice(-1);
+
+    players[i] = player;
 
     console.log(players);
 
@@ -47,12 +51,13 @@ const displayPlayer = function (e) {
     const i =
       +inputAcceptBtn.parentElement.parentElement.classList[1].slice(-1);
 
-    console.log(container[i]);
+    console.log(container[i], players[i], players[players.length - 1], i);
 
     container[i].innerHTML = `<div>
     <div><ion-icon name="person-outline"></ion-icon></div>
     <div><p>${players[i].name}</p></div>`;
 
+    /*       i >= players.length ? players[i - 1].name : players[i].name */
     container[i].classList.remove("player-tobe");
   }
 };
