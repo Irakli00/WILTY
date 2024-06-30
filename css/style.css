@@ -180,6 +180,11 @@ html {
   color: var(--darker-purple);
 }
 
+.card-story {
+  display: inline-block;
+  padding-inline: 1rem;
+}
+
 @media screen and (min-width: 576px) and (orientation: landscape) {
   .demo {
     top: 25px;
@@ -365,10 +370,13 @@ html {
     min-height: 200px;
 
     animation: card-presented 2s forwards;
-    /* animation: card-revealed 2s forwards; */
 
     /*  */
     color: transparent;
     /*  */
+  }
+
+  .card-container.card-container--revealed {
+    animation: card-revealed 2s forwards;
   }
 }

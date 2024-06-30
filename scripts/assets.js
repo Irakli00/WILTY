@@ -31,7 +31,7 @@ export const htmls = {
         <div><ion-icon name="add-outline"></ion-icon></div>
       </div>
     </div>
-    <button>Start a Game!</button>
+    <button class="startGameBTN">Start a Game!</button>
   </section>
     `,
 
@@ -64,7 +64,7 @@ export const htmls = {
   card: `
   <section>
     <div class="card-container">
-      <p>
+      <p class="card-story">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse dolorem
         deserunt commodi doloribus. Quasi voluptates temporibus dolorem illum
         voluptas labore reprehenderit
@@ -74,9 +74,9 @@ export const htmls = {
   `,
 };
 
-const fakeStories = [
+export const fakeStories = [
   `I was stuck in an elevator for 3 hours, because firemen that were to get me out, got stuck in another elevator`,
-  `For me an airport security check takes twise as long beacause of dantist earing I swallowed in childhood`,
+  `For me an airport security check takes twise as long, beacause of dantist's earing I swallowed in childhood`,
   `I can tell the age of a person by looking at their toenails`,
   `I decided to take Judo class as I am sick of people cutting a line`,
   `I have ongoing beef with birds`,

@@ -1,6 +1,7 @@
 import { page } from "./assets.js";
 import { startPageEvents } from "./startingPage.js";
 import { lobbyEvents } from "./lobby.js";
+import { gameProgressionEvents } from "./gameProcess.js";
 
 const startGame = function () {
   page.addEventListener("click", (e) => {
@@ -8,11 +9,8 @@ const startGame = function () {
 
     startPageEvents(e);
     lobbyEvents(e);
+    gameProgressionEvents(e);
   });
 };
 
-const init = function () {
-  startGame();
-};
-
-init();
+startGame();
