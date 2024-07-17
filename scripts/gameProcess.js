@@ -1,9 +1,9 @@
-import { players, page, htmls, fakeStories } from "./assets.js";
+import { players, page, htmls, fakeStories, gameMinutes } from "./assets.js";
 
-const startGame = function (e) {
+let turn = 0;
+
+const startGame = function (e, turn) {
   const startBTN = "startGameBTN";
-  let turn = 0;
-
   if (e.target.classList.contains(startBTN)) {
     /* see if players are >1 */
     console.log(players);
@@ -14,11 +14,12 @@ const startGame = function (e) {
   }
 };
 
-const cardReveal = function (e) {
-  let turn = 0;
-  const cardContainer = e.target.closest(".card-container");
+const cardReveal = function (e, turn) {
+  const cardContainer = e.target.closest(".card-container--init");
   if (cardContainer) {
     cardContainer.classList.add("card-container--revealed");
+
+    cardContainer.classList.toggle("card-container--init"); //to avoid more than one countdown
 
     /* adding story */
     const random_I = Math.floor(Math.random() * fakeStories.length);
@@ -26,34 +27,44 @@ const cardReveal = function (e) {
     cardContainer.querySelector(".card-story").textContent =
       players[turn].story || fakeStories[random_I];
 
-    startCountdown();
+    startCountdown(e);
   }
 };
 
-const startCountdown = function () {
-  let countdownMinutes = 5;
+const startCountdown = function (e) {
+  let seconds = 60;
+  let minutes = gameMinutes;
 
-  let targetTime = new Date().getTime() + countdownMinutes * 60 * 1000;
+  setTimeout(() => {
+    let intervalID = setInterval(() => {
+      seconds--;
+      seconds == -1 && minutes-- && (seconds = 59);
 
-  // Function to update the timer
-  function updateTimer() {
-    let now = new Date().getTime();
-    let distance = targetTime - now;
+      page
+        .querySelector(".countdown")
+        .querySelector("p").textContent = `${minutes}:${
+        seconds < 10 ? `0${seconds}` : seconds
+      }`;
 
-    // Calculate minutes and seconds
-    let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      //minutes < 0 && clearInterval(intervalID) && nextPlayer();
 
-    document.querySelector(".countdown").innerHTML = `${minutes}:${seconds}`;
-  }
+      if (minutes < 0) {
+        clearInterval(intervalID);
+        nextPlayer(e);
+      }
+    }, 10);
+  }, 400);
 
-  updateTimer();
-  setInterval(() => {
-    updateTimer();
-  }, 1000);
+  const nextPlayer = function (e) {
+    turn++;
+
+    console.log(players, minutes, turn);
+
+    cardReveal(e, turn);
+  };
 };
 
 export const gameProgressionEvents = function (e) {
-  startGame(e);
-  cardReveal(e);
+  startGame(e, turn);
+  cardReveal(e, turn);
 };

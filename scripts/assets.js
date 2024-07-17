@@ -65,7 +65,7 @@ export const htmls = {
   <div class="countdown"><p>5:00</p></div>
   <section class="card-section">
     <p class="player--name"></p>
-    <div class="card-container">
+    <div class="card-container card-container--init">
       <p class="card-story">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse dolorem
         deserunt commodi doloribus. Quasi voluptates temporibus dolorem illum
@@ -80,7 +80,7 @@ export const fakeStories = [
   `I was stuck in an elevator for 3 hours, because firemen that were to get me out, got stuck in another elevator`,
   `For me an airport security check takes twise as long, beacause of dantist's earing I swallowed in childhood`,
   `I can tell the age of a person by looking at their toenails`,
-  `I decided to take Judo classes as I am sick of people cutting a line`,
+  `I decided to take Judo classes as I am sick of people cutting in line`,
   `I have ongoing beef with birds`,
   `I've got disqualified from school talent-show, because my performance was "terrifying"`,
 ];
@@ -93,3 +93,5 @@ export const players = [
   { name: "", story: "" },
   { name: "", story: "" },
 ];
+
+export const gameMinutes = 1; //6 actually
