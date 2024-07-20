@@ -94,4 +94,4 @@ export const players = [
   { name: "", story: "" },
 ];
 
-export const gameMinutes = 1; //6 actually
+export const gameMinutes = 5;

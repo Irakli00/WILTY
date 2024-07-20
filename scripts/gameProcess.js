@@ -5,19 +5,22 @@ let turn = 0;
 const startGame = function (e, turn) {
   const startBTN = "startGameBTN";
   if (e.target.classList.contains(startBTN)) {
-    /* see if players are >1 */
-    console.log(players);
-    page.innerHTML = htmls.card;
-
-    page.querySelector(".player--name").textContent = players[turn].name + ":";
-    /* colors should be same as inputs */
+    introduceCard(e, turn);
   }
+};
+
+const introduceCard = function (e) {
+  console.log(players);
+  page.innerHTML = htmls.card;
+
+  page.querySelector(".player--name").textContent = players[turn].name + ":";
+  /* colors should be same as inputs */
 };
 
 const cardReveal = function (e, turn) {
   const cardContainer = e.target.closest(".card-container--init");
   if (cardContainer) {
-    cardContainer.classList.add("card-container--revealed");
+    cardContainer.classList.toggle("card-container--revealed");
 
     cardContainer.classList.toggle("card-container--init"); //to avoid more than one countdown
 
@@ -27,15 +30,16 @@ const cardReveal = function (e, turn) {
     cardContainer.querySelector(".card-story").textContent =
       players[turn].story || fakeStories[random_I];
 
-    startCountdown(e);
+    startCountdown(e, gameMinutes);
   }
 };
 
-const startCountdown = function (e) {
+const startCountdown = function (e, minutes) {
   let seconds = 60;
-  let minutes = gameMinutes;
+  //let minutes = gameMinutes;
 
   setTimeout(() => {
+    minutes--;
     let intervalID = setInterval(() => {
       seconds--;
       seconds == -1 && minutes-- && (seconds = 59);
@@ -46,22 +50,35 @@ const startCountdown = function (e) {
         seconds < 10 ? `0${seconds}` : seconds
       }`;
 
-      //minutes < 0 && clearInterval(intervalID) && nextPlayer();
-
-      if (minutes < 0) {
+      if (minutes == 0 && seconds == 0) {
         clearInterval(intervalID);
-        nextPlayer(e);
+        endRaund(e);
       }
-    }, 10);
-  }, 400);
+    }, 1000);
+  }, 4000);
+};
 
-  const nextPlayer = function (e) {
-    turn++;
+const endRaund = function (e) {
+  turn++;
+  closeCard(e, turn);
+};
 
-    console.log(players, minutes, turn);
+const closeCard = function (e, turn) {
+  const activeCard = e.target.closest(".card-container");
+  console.log(activeCard);
 
-    cardReveal(e, turn);
-  };
+  activeCard.classList.remove("card-container--revealed");
+  activeCard.classList.add("card-container--fin");
+
+  setTimeout(() => {
+    console.log(turn, page.querySelector(".card-container--fin").classList);
+
+    page.querySelector(".card-container").classList.add("card-container--end");
+
+    setTimeout(() => {
+      introduceCard();
+    }, 2000); //animation timer (temp)
+  }, 4000);
 };
 
 export const gameProgressionEvents = function (e) {

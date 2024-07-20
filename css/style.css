@@ -128,6 +128,27 @@ html {
   }
 }
 
+@keyframes card-closed {
+  from {
+    transform: rotateX(0);
+    background-image: none;
+    background-color: #fff;
+    color: var(--dark-blue);
+  }
+  to {
+    transform: rotateX(180deg);
+  }
+}
+
+@keyframes card-removed {
+  from {
+    transform: rotateX(180deg);
+  }
+  to {
+    transform: translateX(-1000px);
+  }
+}
+
 .demo {
   font-weight: 600;
   background-color: var(--dark-yellow);
@@ -413,5 +434,13 @@ html {
 
   .card-container.card-container--revealed {
     animation: card-revealed 2s forwards;
+  }
+
+  .card-container--fin {
+    animation: card-closed 2s forwards;
+  }
+
+  .card-container--end {
+    animation: card-removed 2s forwards;
   }
 }
