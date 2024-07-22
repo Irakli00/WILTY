@@ -2,6 +2,30 @@ import { players, page, htmls, fakeStories, gameMinutes } from "./assets.js";
 
 let turn = 0;
 
+const startCountdown = function (e, minutes) {
+  let seconds = 60;
+  //let minutes = gameMinutes;
+
+  setTimeout(() => {
+    minutes--;
+    let intervalID = setInterval(() => {
+      seconds--;
+      seconds == -1 && minutes-- && (seconds = 59);
+
+      page
+        .querySelector(".countdown")
+        .querySelector("p").textContent = `${minutes}:${
+        seconds < 10 ? `0${seconds}` : seconds
+      }`;
+
+      if (minutes == 0 && seconds == 0) {
+        clearInterval(intervalID);
+        endRaund(e);
+      }
+    }, 10);
+  }, 40);
+};
+
 const startGame = function (e, turn) {
   const startBTN = "startGameBTN";
   if (e.target.classList.contains(startBTN)) {
@@ -34,51 +58,42 @@ const cardReveal = function (e, turn) {
   }
 };
 
-const startCountdown = function (e, minutes) {
-  let seconds = 60;
-  //let minutes = gameMinutes;
-
-  setTimeout(() => {
-    minutes--;
-    let intervalID = setInterval(() => {
-      seconds--;
-      seconds == -1 && minutes-- && (seconds = 59);
-
-      page
-        .querySelector(".countdown")
-        .querySelector("p").textContent = `${minutes}:${
-        seconds < 10 ? `0${seconds}` : seconds
-      }`;
-
-      if (minutes == 0 && seconds == 0) {
-        clearInterval(intervalID);
-        endRaund(e);
-      }
-    }, 1000);
-  }, 4000);
-};
-
 const endRaund = function (e) {
-  turn++;
   closeCard(e, turn);
+  turn++;
 };
 
 const closeCard = function (e, turn) {
   const activeCard = e.target.closest(".card-container");
-  console.log(activeCard);
+  //console.log(activeCard);
 
   activeCard.classList.remove("card-container--revealed");
   activeCard.classList.add("card-container--fin");
 
-  setTimeout(() => {
-    console.log(turn, page.querySelector(".card-container--fin").classList);
+  activeCard.addEventListener("click", () => {
+    //cardRemoved();
+    introduceCard();
+  });
 
-    page.querySelector(".card-container").classList.add("card-container--end");
+  setTimeout(() => {
+    cardRemoved();
 
     setTimeout(() => {
-      introduceCard();
+      activeCard.insertAdjacentHTML("afterend", htmls.trueOrLie);
+
+      document
+        .querySelector(".true-lie")
+        .querySelector(
+          "p"
+        ).textContent = `${players[turn].name}, was it a truth, or was it a lie?`;
     }, 2000); //animation timer (temp)
-  }, 4000);
+  }, 2000);
+};
+
+const cardRemoved = function () {
+  // console.log(turn, page.querySelector(".card-container--fin").classList);
+
+  page.querySelector(".card-container").classList.add("card-container--end");
 };
 
 export const gameProgressionEvents = function (e) {

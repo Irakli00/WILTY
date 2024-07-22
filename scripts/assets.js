@@ -74,6 +74,18 @@ export const htmls = {
     </div>
   </section>
   `,
+
+  trueOrLie: `
+    <div class="true-lie">
+      <div>
+        <p>---</p>
+      </div>
+      <div>
+        <div><p>TRUE</p></div>
+        <div><p>LIE</p></div>
+      </div>
+    </div>
+`,
 };
 
 export const fakeStories = [
