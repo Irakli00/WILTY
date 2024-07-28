@@ -78,11 +78,10 @@ export const htmls = {
   trueOrLie: `
     <div class="true-lie">
       <div>
-        <p>---</p>
+        <p class="player_name">---</p>
       </div>
       <div>
-        <div><p>TRUE</p></div>
-        <div><p>LIE</p></div>
+      <p class="true-lie--countdown">10</p>
       </div>
     </div>
 `,

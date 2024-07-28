@@ -84,8 +84,19 @@ const closeCard = function (e, turn) {
       document
         .querySelector(".true-lie")
         .querySelector(
-          "p"
+          ".player_name"
         ).textContent = `${players[turn].name}, was it a truth, or was it a lie?`;
+
+      let targetP = document
+        .querySelector(".true-lie")
+        .querySelector(".true-lie--countdown");
+
+      let trueLieIntervalID = setInterval(() => {
+        var seconds = targetP.textContent;
+        targetP.textContent--;
+
+        seconds - 1 == 0 && clearInterval(trueLieIntervalID);
+      }, 1000);
     }, 2000); //animation timer (temp)
   }, 2000);
 };
