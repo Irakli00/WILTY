@@ -1,6 +1,18 @@
 import { players, page, htmls, fakeStories, gameMinutes } from "./assets.js";
 
+//make so that it shows 'NEXT PLAYER' before rendering next and 'FINAL PLAYER' at last one
+
 let turn = 0;
+
+const playersInLobby = function () {
+  const p = [];
+  players.forEach((el) => {
+    const idunno = String(el.name.trim()) == false;
+
+    !idunno && p.push(el);
+  });
+  return p;
+};
 
 const startCountdown = function (e, minutes) {
   let seconds = 60;
@@ -33,11 +45,17 @@ const startGame = function (e, turn) {
   }
 };
 
-const introduceCard = function (e) {
-  console.log(players);
+const introduceCard = function (e, turn) {
+  if (turn == playersInLobby().length) {
+    console.log("thats all folks");
+    return;
+  }
+
+  console.log(players, playersInLobby(), turn);
   page.innerHTML = htmls.card;
 
-  page.querySelector(".player--name").textContent = players[turn].name + ":";
+  page.querySelector(".player--name").textContent =
+    playersInLobby()[turn].name + ":";
   /* colors should be same as inputs */
 };
 
@@ -52,15 +70,16 @@ const cardReveal = function (e, turn) {
     const random_I = Math.floor(Math.random() * fakeStories.length);
 
     cardContainer.querySelector(".card-story").textContent =
-      players[turn].story || fakeStories[random_I];
+      playersInLobby()[turn].story || fakeStories[random_I];
 
     startCountdown(e, gameMinutes);
   }
 };
 
 const endRaund = function (e) {
-  closeCard(e, turn);
   turn++;
+  closeCard(e, turn);
+  console.log("ended", turn);
 };
 
 const closeCard = function (e, turn) {
@@ -72,7 +91,7 @@ const closeCard = function (e, turn) {
 
   activeCard.addEventListener("click", () => {
     //cardRemoved();
-    introduceCard();
+    introduceCard(e, turn);
   });
 
   setTimeout(() => {
@@ -83,9 +102,8 @@ const closeCard = function (e, turn) {
 
       document
         .querySelector(".true-lie")
-        .querySelector(
-          ".player_name"
-        ).textContent = `${players[turn].name}, was it a truth, or was it a lie?`;
+        .querySelector(".player_name").innerHTML = `Time to guess!<br>
+      ${playersInLobby()[turn - 1].name}, was it a truth, or was it a lie?`;
 
       let targetP = document
         .querySelector(".true-lie")
@@ -95,7 +113,11 @@ const closeCard = function (e, turn) {
         var seconds = targetP.textContent;
         targetP.textContent--;
 
-        seconds - 1 == 0 && clearInterval(trueLieIntervalID);
+        seconds - 1 == 0 && clearInterval(trueLieIntervalID) && endRaund();
+
+        activeCard.innerHTML = "";
+
+        seconds - 1 == 0 && introduceCard(e, turn);
       }, 1000);
     }, 2000); //animation timer (temp)
   }, 2000);
