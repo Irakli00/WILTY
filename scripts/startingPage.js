@@ -4,8 +4,11 @@ const startPlayBtn = "play-btn";
 const rulesBtn = "rules-btn";
 const detailsBtn = "details-btn";
 
-const startBtnEvent = function (e) {
-  if (e.target.className == startPlayBtn) {
+export const startBtnEvent = function (e) {
+  if (
+    e.target.className == startPlayBtn ||
+    e.target.className == "start-over-btn"
+  ) {
     page.innerHTML = htmls.lobby;
   }
 };

@@ -85,6 +85,14 @@ export const htmls = {
       </div>
     </div>
 `,
+  startOver: `
+          <div class="start-over">
+          <article>
+            <p>Everyone had their turn</p>
+            <button class="start-over-btn">Start Over</button>
+          </article>
+        </div>
+        `,
 };
 
 export const fakeStories = [

@@ -1,5 +1,7 @@
 import { players, page, htmls, fakeStories, gameMinutes } from "./assets.js";
 
+import { startBtnEvent } from "./startingPage.js";
+
 //make so that it shows 'NEXT PLAYER' before rendering next and 'FINAL PLAYER' at last one
 
 let turn = 0;
@@ -40,14 +42,16 @@ const startCountdown = function (e, minutes) {
 
 const startGame = function (e, turn) {
   const startBTN = "startGameBTN";
+
   if (e.target.classList.contains(startBTN)) {
+    turn == 0;
     introduceCard(e, turn);
   }
 };
 
 const introduceCard = function (e, turn) {
   if (turn == playersInLobby().length) {
-    console.log("thats all folks");
+    thatsAllFolks(e);
     return;
   }
 
@@ -111,14 +115,14 @@ const closeCard = function (e, turn) {
 
       let trueLieIntervalID = setInterval(() => {
         var seconds = targetP.textContent;
-        targetP.textContent--;
+        targetP.textContent--; //lol
 
         seconds - 1 == 0 && clearInterval(trueLieIntervalID) && endRaund();
 
         activeCard.innerHTML = "";
 
-        seconds - 1 == 0 && introduceCard(e, turn);
-      }, 1000);
+        seconds - 1 == 0 && targetP.textContent == 0 && introduceCard(e, turn);
+      }, 100);
     }, 2000); //animation timer (temp)
   }, 2000);
 };
@@ -127,6 +131,12 @@ const cardRemoved = function () {
   // console.log(turn, page.querySelector(".card-container--fin").classList);
 
   page.querySelector(".card-container").classList.add("card-container--end");
+};
+
+const thatsAllFolks = function (e) {
+  console.log("thats all folks");
+  page.innerHTML = htmls.startOver;
+  turn = 0;
 };
 
 export const gameProgressionEvents = function (e) {
