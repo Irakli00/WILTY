@@ -349,7 +349,7 @@ html {
 
     /*  */
     margin-top: 97px;
-    height: 250px;
+    max-height: 250px;
     /*  */
   }
 
@@ -364,17 +364,18 @@ html {
     grid-template-columns: 80fr 20fr;
   }
 
-  .rules-btn {
+  .rules-btn,
+  .details-btn {
     /*  */
     font-size: 1.5rem;
     border-radius: 3px;
+    padding: 15px;
     /*  */
   }
 
   .details-btn {
     /*  */
     font-size: 1.7rem;
-    border-radius: 3px;
     /*  */
   }
 
@@ -493,8 +494,7 @@ html {
 
     border-radius: 2px;
 
-    min-height: 200px;
-
+    min-height: 175px;
     animation: card-presented 2s forwards;
 
     /*  */
