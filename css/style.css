@@ -253,6 +253,7 @@ html {
   flex-direction: column;
   margin-top: 40px;
   gap: 20px;
+  overflow: hidden;
 }
 
 .countdown {
@@ -386,8 +387,8 @@ html {
 
     overflow-y: scroll;
     margin-top: 97px;
-    height: 250px;
-    padding: 20px;
+    max-height: 250px;
+    padding: 25px;
     gap: 10px;
   }
 
