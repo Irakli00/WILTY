@@ -251,8 +251,8 @@ html {
 .card-section {
   display: flex;
   flex-direction: column;
-  margin-top: 40px;
-  gap: 20px;
+  margin-top: 25vh;
+  gap: 12vh;
   overflow: hidden;
 }
 
@@ -523,7 +523,7 @@ html {
   }
 
   .card-section {
-    margin-top: 25px;
-    gap: 25px;
+    margin-top: 7vh;
+    gap: 5vh;
   }
 }
