@@ -513,3 +513,15 @@ html {
     animation: card-removed 2s forwards;
   }
 }
+
+@media screen and (min-width: 400px) {
+  .game-container,
+  .lobby-container {
+    margin-top: 50px;
+  }
+
+  .card-section {
+    margin-top: 25px;
+    gap: 25px;
+  }
+}
