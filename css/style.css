@@ -341,21 +341,22 @@ html {
 
   .game-container {
     /*  */
-    padding: 20px 40px 20px 40px;
+    padding: 5vh 10vh 5vh 10vh;
     /*  */
     /*  */
-    gap: 20px;
+    gap: 5vh;
     /*  */
 
     /*  */
-    margin-top: 97px;
+    margin-top: 24vh;
     max-height: 250px;
     /*  */
   }
 
   .play-btn {
     /*  */
-    height: 140px;
+    max-height: 140px;
+    padding: 10vh;
     /*  */
   }
 
@@ -387,7 +388,7 @@ html {
     flex-direction: column;
 
     overflow-y: scroll;
-    margin-top: 97px;
+    margin-top: 24vh;
     max-height: 250px;
     padding: 25px;
     gap: 10px;
@@ -518,7 +519,7 @@ html {
 @media screen and (min-width: 400px) {
   .game-container,
   .lobby-container {
-    margin-top: 50px;
+    margin-top: 12vh;
   }
 
   .card-section {
