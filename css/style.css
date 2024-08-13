@@ -246,6 +246,12 @@ html {
 .card-story {
   display: inline-block;
   padding-inline: 1rem;
+  cursor: default;
+
+  user-select: none; /* Prevents text selection */
+  -webkit-user-select: none; /* For Safari */
+  -moz-user-select: none; /* For Firefox */
+  -ms-user-select: none; 
 }
 
 .card-section {
@@ -330,6 +336,16 @@ html {
 .start-over {
   margin: 10px;
   animation: background-color-change 45s infinite;
+}
+
+.startGameBTN{
+  background-color: var(--greenish);
+  border: none;
+  padding: 4vh;
+  border-radius: 5px;
+  cursor: pointer;
+  color: var(--dark-blue);
+  font-weight: 500;
 }
 
 @media screen and (min-width: 576px) and (orientation: landscape) {
@@ -442,7 +458,7 @@ html {
   }
 
   /* 0000 */
-  .player--0 {
+  /* .player--0 {
     border: 2px solid var(--white-tint);
     background-color: var(--secondary-blue);
     color: var(--white-tint);
@@ -473,7 +489,7 @@ html {
   .player--input--1 > div:last-child > ion-icon:last-of-type {
     background-color: var(--darker-purple);
     color: var(--font-gray);
-  }
+  } */
 
   .card-container {
     background-image: url(../img/card--blue.PNG);
@@ -523,7 +539,7 @@ html {
   }
 
   .card-section {
-    margin-top: 7vh;
+    margin-top: 15vh;
     gap: 5vh;
   }
 }

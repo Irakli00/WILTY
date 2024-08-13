@@ -1,4 +1,4 @@
-import { htmls, page, players } from "./assets.js";
+import { htmls, page, players,  } from "./assets.js";
 
 const inputReveal = function (e) {
   const players = document.querySelectorAll(".player");
@@ -8,7 +8,6 @@ const inputReveal = function (e) {
   if (targetToChange && targetToChange.innerHTML) {
     players.forEach((el, i) => {
       if (el == targetToChange) {
-        //console.log(players, targetToChange);
 
         targetToChange.innerHTML = htmls.playerInputs[i];
 
@@ -39,9 +38,34 @@ const inputValueAccept = function (e) {
 
     console.log(players);
 
+    additionalPlayerRender(e)
     /* see if repeats */
   }
 };
+
+const additionalPlayerRender = function(e){
+  const players = document.querySelectorAll(".player");
+
+  const lol = e.target.parentElement.parentElement
+  var i = lol.classList[1].slice(-1)
+
+  console.log(lol.classList,i)
+
+  if (i>=1){
+    const htmlString = htmls.addPlayer[i]
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(htmlString, 'text/html');
+    const element = doc.body.firstChild;
+    element.classList.replace(`player--x`, `player--${+i+1}`)
+
+    document.querySelector('.lobby-container').insertAdjacentElement('beforeend', element)
+  }
+
+}
+
+const additionalPlayerInputRender = function(e){
+  console.log('iiii')
+}
 
 const displayPlayer = function (e) {
   const inputAcceptBtn = e.target.closest(".accept-input");
@@ -51,7 +75,7 @@ const displayPlayer = function (e) {
     const i =
       +inputAcceptBtn.parentElement.parentElement.classList[1].slice(-1);
 
-    console.log(container[i], players[i], players[players.length - 1], i);
+    //console.log(container[i], players[i], players[players.length - 1], i);
 
     container[i].innerHTML = `<div>
     <div><ion-icon name="person-outline"></ion-icon></div>

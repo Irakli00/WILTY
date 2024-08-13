@@ -16,24 +16,38 @@ export const htmls = {
   lobby: `
   <section class="lobby-section">
     <div class="lobby-container">
-    <div class="player player-tobe player--0">
-        <div>
-          <div><ion-icon name="person-outline"></ion-icon></div>
-          <div><p>Add a Player</p></div>
-        </div>
-        <div><ion-icon name="add-outline"></ion-icon></div>
-      </div>
-      <div class="player player-tobe player--1">
-        <div>
-          <div><ion-icon name="person-outline"></ion-icon></div>
-          <div><p>Add a Player</p></div>
-        </div>
-        <div><ion-icon name="add-outline"></ion-icon></div>
-      </div>
     </div>
     <button class="startGameBTN">Start a Game!</button>
   </section>
     `,
+
+  addPlayer:[
+    `<div class="player player-tobe player--x">
+        <div>
+          <div><ion-icon name="person-outline"></ion-icon></div>
+          <div><p>Add a Player</p></div>
+        </div>
+        <div><ion-icon name="add-outline"></ion-icon></div>
+      </div>`,
+      `
+      <div class="player player-tobe player--x">
+        <div>
+          <div><ion-icon name="person-outline"></ion-icon></div>
+          <div><p>Add a Player</p></div>
+        </div>
+        <div><ion-icon name="add-outline"></ion-icon></div>
+      </div>
+      `,
+      `
+      <div class="player player-tobe player--x">
+        <div>
+          <div><ion-icon name="person-outline"></ion-icon></div>
+          <div><p>Add a Player</p></div>
+        </div>
+        <div><ion-icon name="add-outline"></ion-icon></div>
+      </div>
+      `
+  ],
 
   playerInputs: [
     `  
@@ -49,6 +63,18 @@ export const htmls = {
   </div>
   `,
     `
+  <div class="player--input player--input--1">
+    <div>
+      <ion-icon name="person-outline"></ion-icon>
+      <input type="text" class="player--input--input" />
+    </div>
+    <div>
+      <ion-icon name="checkmark-outline" class="accept-input accept-input--1"></ion-icon>
+      <ion-icon name="close-outline"></ion-icon>
+    </div>
+  </div>
+  `,
+  `
   <div class="player--input player--input--1">
     <div>
       <ion-icon name="person-outline"></ion-icon>
