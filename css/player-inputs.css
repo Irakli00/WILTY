@@ -1,0 +1,49 @@
+.player--0 {
+  border: 2px solid var(--white-tint);
+  background-color: var(--secondary-blue);
+  color: var(--white-tint);
+}
+
+.player--input--0 > div:last-child > ion-icon:first-of-type {
+  background-color: var(--dark-yellow);
+  color: var(--main-purple);
+}
+
+.player--input--0 > div:last-child > ion-icon:last-of-type {
+  background-color: var(--dark-red);
+  color: var(--darker-gray);
+}
+
+/* 1111 */
+.player--1 {
+  background-color: var(--greenish);
+  border: 2px solid var(--dark-blue);
+  color: #000000;
+}
+
+.player--input--1 > div:last-child > ion-icon:first-of-type {
+  background-color: var(--darker-gray);
+  color: var(--dark-red);
+}
+
+.player--input--1 > div:last-child > ion-icon:last-of-type {
+  background-color: var(--darker-purple);
+  color: var(--font-gray);
+}
+
+/* 2222 */
+
+.player--2 {
+  background-color: var(--dark-yellow);
+  border: 2px solid var(--dark-red);
+  color: var(--dark-red);
+}
+
+.player--input--2 > div:last-child > ion-icon:first-of-type {
+  background-color: var(--darker-gray);
+  color: var(--dark-red);
+}
+
+.player--input--2 > div:last-child > ion-icon:last-of-type {
+  background-color: var(--darker-purple);
+  color: var(--font-gray);}
