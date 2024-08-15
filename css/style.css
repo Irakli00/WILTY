@@ -178,6 +178,8 @@ html {
   display: inline-block;
   padding-inline: 30px;
   position: absolute;
+  width: 200px;
+  text-align: center;
 }
 
 .game-container {
@@ -290,7 +292,7 @@ html {
   background-color: var(--white-tint);
 }
 
-.true-lie,
+.true-lie,.lobby-guess,
 .start-over {
   background-color: var(--silver-gray);
   text-align: center;
@@ -301,6 +303,7 @@ html {
   bottom: 15px;
   border-radius: 5px;
   /*   z-index: -1000; */
+  padding: 10px;
 
   display: flex;
   flex-direction: column;
@@ -333,6 +336,56 @@ html {
   color: var(--silver-gray);
 }
 
+
+.lobby-guess{
+  margin-inline: 10px;
+}
+
+.lobby-guess--players{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  font-size: 2rem;
+  row-gap: 10px;
+
+}
+
+.lobby-guess--players > div {
+  flex-basis: calc(33.33% - 10px); /* 3 items per row, accounting for the gap */
+}
+
+.player--guess{
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 10px;
+  height: 150px;
+}
+
+.player--guess >div{
+  display: flex;
+  flex-direction: column;
+}
+
+.player--guess>div button{
+  width: 100%;
+  margin-top: 15px;
+  padding: 8px;
+  border: none;
+  border-radius: 2px;
+  font-weight: 600;
+}
+
+.player--guess--T{
+  background-color: var(--greenish);
+  color: var(--dark-blue);
+}
+
+.player--guess--L{
+  background-color: var(--dark-red);
+  color: var(--white-tint);
+}
+
 .start-over {
   margin: 10px;
   animation: background-color-change 45s infinite;
@@ -351,7 +404,7 @@ html {
 @media screen and (min-width: 576px) and (orientation: landscape) {
   .demo {
     top: 25px;
-    left: -25px;
+    left: -55px;
     transform: rotate(-45deg);
   }
 
@@ -405,7 +458,7 @@ html {
 
     overflow-y: scroll;
     margin-top: 24vh;
-    max-height: 250px;
+    max-height: 200px;
     padding: 25px;
     gap: 10px;
   }
@@ -489,7 +542,7 @@ html {
   .player--input--1 > div:last-child > ion-icon:last-of-type {
     background-color: var(--darker-purple);
     color: var(--font-gray);
-  } */
+  } 
 
   .card-container {
     background-image: url(../img/card--blue.PNG);

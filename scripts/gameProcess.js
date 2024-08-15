@@ -102,35 +102,45 @@ const closeCard = function (e, turn) {
     cardRemoved();
 
     setTimeout(() => {
-      activeCard.insertAdjacentHTML("afterend", htmls.trueOrLie);
+      activeCard.insertAdjacentHTML("afterend", htmls.lobbyGuesses);
 
-      document
-        .querySelector(".true-lie")
-        .querySelector(".player_name").innerHTML = `Time to guess!<br>
-      ${playersInLobby()[turn - 1].name}, was it a truth, or was it a lie?`;
+      players.forEach((el,i)=>{
+        if (el.name.trim()){
+          document.querySelector('.lobby-guess--players').innerHTML+=
+          htmls.lobbyGuessPlayer
 
-      let targetP = document
-        .querySelector(".true-lie")
-        .querySelector(".true-lie--countdown");
+          const playerEl =document.querySelectorAll('.player--guess')
 
-      let trueLieIntervalID = setInterval(() => {
-        var seconds = targetP.textContent;
-        targetP.textContent--; //lol
+          playerEl[i].querySelector('p').textContent = players[i].name
+        }
+      })
 
-        seconds - 1 == 0 && clearInterval(trueLieIntervalID) && endRaund();
+      // document
+      //   .querySelector(".true-lie")
+      //   .querySelector(".player_name").innerHTML = `Time to guess!<br>
+      // ${playersInLobby()[turn - 1].name}, was it a truth, or was it a lie?`;
 
-        activeCard.innerHTML = "";
+      // let targetP = document
+      //   .querySelector(".true-lie")
+      //   .querySelector(".true-lie--countdown");
 
-        seconds - 1 == 0 && targetP.textContent == 0 && introduceCard(e, turn);
-      }, 100);
+      // let trueLieIntervalID = setInterval(() => {
+      //   var seconds = targetP.textContent;
+      //   targetP.textContent--; //lol
+
+      //   seconds - 1 == 0 && clearInterval(trueLieIntervalID) && endRaund();
+
+      //   activeCard.innerHTML = "";
+
+      //   seconds - 1 == 0 && targetP.textContent == 0 && introduceCard(e, turn);
+      // }, 100);
     }, 2000); //animation timer (temp)
   }, 2000);
 };
 
 const cardRemoved = function () {
-  // console.log(turn, page.querySelector(".card-container--fin").classList);
-
   page.querySelector(".card-container").classList.add("card-container--end");
+
 };
 
 const thatsAllFolks = function (e) {

@@ -38,18 +38,19 @@ const inputValueAccept = function (e) {
 
     console.log(players);
 
-    additionalPlayerRender(e)
+additionalPlayerRender(e)
+    }
+    
     /* see if repeats */
   }
-};
 
 const additionalPlayerRender = function(e){
-  const players = document.querySelectorAll(".player");
+  //const players = document.querySelectorAll(".player");
 
   const lol = e.target.parentElement.parentElement
   var i = lol.classList[1].slice(-1)
 
-  console.log(lol.classList,i)
+  //console.log(lol.classList,i)
 
   if (i>=1){
     const htmlString = htmls.addPlayer[i]
@@ -61,10 +62,6 @@ const additionalPlayerRender = function(e){
     document.querySelector('.lobby-container').insertAdjacentElement('beforeend', element)
   }
 
-}
-
-const additionalPlayerInputRender = function(e){
-  console.log('iiii')
 }
 
 const displayPlayer = function (e) {

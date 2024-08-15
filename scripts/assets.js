@@ -46,6 +46,33 @@ export const htmls = {
         </div>
         <div><ion-icon name="add-outline"></ion-icon></div>
       </div>
+      `,
+      `
+      <div class="player player-tobe player--x">
+        <div>
+          <div><ion-icon name="person-outline"></ion-icon></div>
+          <div><p>Add a Player</p></div>
+        </div>
+        <div><ion-icon name="add-outline"></ion-icon></div>
+      </div>
+      `,
+      `
+      <div class="player player-tobe player--x">
+        <div>
+          <div><ion-icon name="person-outline"></ion-icon></div>
+          <div><p>Add a Player</p></div>
+        </div>
+        <div><ion-icon name="add-outline"></ion-icon></div>
+      </div>
+      `,
+      `
+      <div class="player player-tobe player--x">
+        <div>
+          <div><ion-icon name="person-outline"></ion-icon></div>
+          <div><p>Add a Player</p></div>
+        </div>
+        <div><ion-icon name="add-outline"></ion-icon></div>
+      </div>
       `
   ],
 
@@ -75,17 +102,53 @@ export const htmls = {
   </div>
   `,
   `
-  <div class="player--input player--input--1">
+  <div class="player--input player--input--2">
     <div>
       <ion-icon name="person-outline"></ion-icon>
       <input type="text" class="player--input--input" />
     </div>
     <div>
-      <ion-icon name="checkmark-outline" class="accept-input accept-input--1"></ion-icon>
+      <ion-icon name="checkmark-outline" class="accept-input accept-input--2"></ion-icon>
       <ion-icon name="close-outline"></ion-icon>
     </div>
   </div>
   `,
+  `
+  <div class="player--input player--input--3">
+    <div>
+      <ion-icon name="person-outline"></ion-icon>
+      <input type="text" class="player--input--input" />
+    </div>
+    <div>
+      <ion-icon name="checkmark-outline" class="accept-input accept-input--3"></ion-icon>
+      <ion-icon name="close-outline"></ion-icon>
+    </div>
+  </div>
+  `,
+  `
+  <div class="player--input player--input--4">
+    <div>
+      <ion-icon name="person-outline"></ion-icon>
+      <input type="text" class="player--input--input" />
+    </div>
+    <div>
+      <ion-icon name="checkmark-outline" class="accept-input accept-input--4"></ion-icon>
+      <ion-icon name="close-outline"></ion-icon>
+    </div>
+  </div>
+  `,
+  `
+  <div class="player--input player--input--5">
+    <div>
+      <ion-icon name="person-outline"></ion-icon>
+      <input type="text" class="player--input--input" />
+    </div>
+    <div>
+      <ion-icon name="checkmark-outline" class="accept-input accept-input--5"></ion-icon>
+      <ion-icon name="close-outline"></ion-icon>
+    </div>
+  </div>
+  `
   ],
   card: `
   <div class="countdown"><p>5:00</p></div>
@@ -101,6 +164,23 @@ export const htmls = {
   </section>
   `,
 
+  lobbyGuesses:
+    `
+      <section class="lobby-guess">
+        <div class="lobby-guess--players">
+        </div>
+      </section>
+    `
+  ,
+  lobbyGuessPlayer:`
+        <div class="player--guess player--guess--0">
+          <p>player X</p>
+          <div>
+            <button class="player--guess--T">TRUE</button>
+            <button class="player--guess--L">LIE</button>
+          </div>
+        </div>`,
+
   trueOrLie: `
     <div class="true-lie">
       <div>
@@ -111,6 +191,8 @@ export const htmls = {
       </div>
     </div>
 `,
+
+
   startOver: `
           <div class="start-over">
           <article>
