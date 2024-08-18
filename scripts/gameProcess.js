@@ -83,7 +83,6 @@ const cardReveal = function (e, turn) {
 const endRaund = function (e) {
   turn++;
   closeCard(e, turn);
-  console.log("ended", turn);
 };
 
 const closeCard = function (e, turn) {
@@ -115,7 +114,33 @@ const closeCard = function (e, turn) {
         }
       })
 
-      // document
+      const trueBTNS = document.querySelectorAll('.player--guess--T')
+      const lieBTNS = document.querySelectorAll('.player--guess--L')
+
+      // console.log(trueBTNS,lieBTNS)
+
+      trueBTNS.forEach(el=>{
+        el.addEventListener('click',(e)=>{
+        const bgc = window.getComputedStyle(e.target).backgroundColor
+
+        e.target.parentElement.style.backgroundColor = bgc
+        e.target.parentElement.querySelector('.player--guess--L').style.display = 'none'
+      })
+      })
+
+        lieBTNS.forEach(el=>{
+        el.addEventListener('click',(e)=>{
+        const bgc = window.getComputedStyle(e.target).backgroundColor
+
+        e.target.parentElement.style.backgroundColor = bgc
+        e.target.parentElement.querySelector('.player--guess--T').style.display = 'none'
+      })
+      })
+
+    }, 2000); //animation timer (temp)
+  }, 2000);
+
+        // document
       //   .querySelector(".true-lie")
       //   .querySelector(".player_name").innerHTML = `Time to guess!<br>
       // ${playersInLobby()[turn - 1].name}, was it a truth, or was it a lie?`;
@@ -134,8 +159,6 @@ const closeCard = function (e, turn) {
 
       //   seconds - 1 == 0 && targetP.textContent == 0 && introduceCard(e, turn);
       // }, 100);
-    }, 2000); //animation timer (temp)
-  }, 2000);
 };
 
 const cardRemoved = function () {

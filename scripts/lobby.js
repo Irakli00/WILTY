@@ -67,7 +67,7 @@ const additionalPlayerRender = function(e){
 const displayPlayer = function (e) {
   const inputAcceptBtn = e.target.closest(".accept-input");
   const container = page.querySelectorAll(".player");
-
+  
   if (inputAcceptBtn) {
     const i =
       +inputAcceptBtn.parentElement.parentElement.classList[1].slice(-1);
@@ -77,6 +77,7 @@ const displayPlayer = function (e) {
     container[i].innerHTML = `<div>
     <div><ion-icon name="person-outline"></ion-icon></div>
     <div><p>${players[i].name}</p></div>`;
+
 
     /*       i >= players.length ? players[i - 1].name : players[i].name */
     container[i].classList.remove("player-tobe");
