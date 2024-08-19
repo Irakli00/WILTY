@@ -115,14 +115,20 @@ const true_lieGuesses = function(e){
     setTimeout(() => {
       e.target.closest(".card-container").insertAdjacentHTML("afterend", htmls.lobbyGuesses);
 
-      players.forEach((_,i)=>{
-          document.querySelector('.lobby-guess--players').innerHTML+=
-          htmls.lobbyGuessPlayer
 
-          const playerEl =document.querySelectorAll('.player--guess')
+      const playersToGuess = players.filter(el=>
+        el !== players[turn-1]
+      )
 
-          playerEl[i].querySelector('p').textContent = players[i].name
-        
+      console.log(players, playersToGuess)
+
+      playersToGuess.forEach((_,i)=>{
+
+        document.querySelector('.lobby-guess--players').innerHTML+=
+        htmls.lobbyGuessPlayer
+
+        const playerEl =document.querySelectorAll('.player--guess')
+        playerEl[i].querySelector('p').textContent = playersToGuess[i].name
       })
 
       const trueBTNS = document.querySelectorAll('.player--guess--T')
@@ -133,12 +139,10 @@ const true_lieGuesses = function(e){
       trueBTNS.forEach(el=>{
         el.addEventListener('click',(e)=>{
           playerGuessed++
-          // const bgc = window.getComputedStyle(e.target).backgroundColor
-          // e.target.parentElement.style.backgroundColor = bgc
           spreadColor(e)
           e.target.parentElement.querySelector('.player--guess--L').style.display = 'none'
 
-          if(playerGuessed== players.length){
+          if(playerGuessed== playersToGuess.length){
             reveal(e)
           }
       })
@@ -151,7 +155,7 @@ const true_lieGuesses = function(e){
         // e.target.parentElement.style.backgroundColor = bgc
         spreadColor(e)
         e.target.parentElement.querySelector('.player--guess--T').style.display = 'none'
-        if(playerGuessed== players.length){
+        if(playerGuessed== playersToGuess.length){
           reveal(e)
         }
       })
@@ -198,7 +202,6 @@ const cardRemoved = function () {
 };
 
 const thatsAllFolks = function (e) {
-  console.log("thats all folks");
   page.innerHTML = htmls.startOver;
   turn = 0;
 };
