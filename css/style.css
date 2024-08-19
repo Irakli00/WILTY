@@ -315,12 +315,30 @@ html {
 
 .true-lie > div:last-child {
   display: flex;
-  justify-content: center;
-  gap: 20px;
+  justify-content: space-around;
   margin: 0 20px;
+  padding: 40px;
+  gap: 20px;
 }
 
-.true-lie > div:last-child div {
+.true-lie >div:last-child button{
+  border: none;
+  padding: 10px 40px;
+  border-radius: 3px;
+  width: 100%;
+  font-weight: 500;
+}
+
+.true-lie > div:last-child button:first-of-type{
+  background-color: var(--greenish);
+  color: var(--dark-blue);
+}
+.true-lie > div:last-child button:last-of-type{
+  background-color: var(--dark-red);
+  color: var(--white-tint);
+}
+
+/* .true-lie > div:last-child div {
   padding: 40px 40px;
   width: 100%;
   border-radius: 2px;
@@ -334,7 +352,7 @@ html {
 .true-lie > div:last-child div:nth-child(2) {
   background-color: var(--dark-red);
   color: var(--silver-gray);
-}
+} */
 
 
 .lobby-guess{

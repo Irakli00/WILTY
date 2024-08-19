@@ -186,8 +186,10 @@ export const htmls = {
       <div>
         <p class="player_name">---</p>
       </div>
+      
       <div>
-      <p class="true-lie--countdown">10</p>
+        <button class="reveal-T">TRUE</button>
+        <button class="reveal-L">LIE</button
       </div>
     </div>
 `,
@@ -213,12 +215,7 @@ export const fakeStories = [
 ];
 
 export const players = [
-  { name: "", story: "" },
-  { name: "", story: "" },
-  { name: "", story: "" },
-  { name: "", story: "" },
-  { name: "", story: "" },
-  { name: "", story: "" },
+
 ];
 
 export const gameMinutes = 5;

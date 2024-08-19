@@ -1,20 +1,26 @@
 import { players, page, htmls, fakeStories, gameMinutes } from "./assets.js";
 
-import { startBtnEvent } from "./startingPage.js";
+// import { startBtnEvent } from "./startingPage.js";
 
 //make so that it shows 'NEXT PLAYER' before rendering next and 'FINAL PLAYER' at last one
 
 let turn = 0;
 
-const playersInLobby = function () {
-  const p = [];
-  players.forEach((el) => {
-    const idunno = String(el.name.trim()) == false;
+// const players function () {
+//   const p = [];
+//   players.forEach((el) => {
+//     const idunno = String(el.name.trim()) == false;
 
-    !idunno && p.push(el);
-  });
-  return p;
-};
+//     !idunno && p.push(el);
+//   });
+//   return p;
+// };
+
+
+const spreadColor = function(e){
+    const bgc = window.getComputedStyle(e.target).backgroundColor
+    e.target.parentElement.style.backgroundColor = bgc
+}
 
 const startCountdown = function (e, minutes) {
   let seconds = 60;
@@ -50,16 +56,16 @@ const startGame = function (e, turn) {
 };
 
 const introduceCard = function (e, turn) {
-  if (turn == playersInLobby().length) {
+  if (turn == players.length) {
     thatsAllFolks(e);
     return;
   }
 
-  console.log(players, playersInLobby(), turn);
+  console.log(players,turn);
   page.innerHTML = htmls.card;
 
   page.querySelector(".player--name").textContent =
-    playersInLobby()[turn].name + ":";
+    players[turn].name + ":";
   /* colors should be same as inputs */
 };
 
@@ -74,7 +80,7 @@ const cardReveal = function (e, turn) {
     const random_I = Math.floor(Math.random() * fakeStories.length);
 
     cardContainer.querySelector(".card-story").textContent =
-      playersInLobby()[turn].story || fakeStories[random_I];
+      players[turn].story || fakeStories[random_I];
 
     startCountdown(e, gameMinutes);
   }
@@ -99,19 +105,24 @@ const closeCard = function (e, turn) {
 
   setTimeout(() => {
     cardRemoved();
+    true_lieGuesses(e)
+  }, 2000);
+};
+
+const true_lieGuesses = function(e){
+  let playerGuessed = 0
 
     setTimeout(() => {
-      activeCard.insertAdjacentHTML("afterend", htmls.lobbyGuesses);
+      e.target.closest(".card-container").insertAdjacentHTML("afterend", htmls.lobbyGuesses);
 
-      players.forEach((el,i)=>{
-        if (el.name.trim()){
+      players.forEach((_,i)=>{
           document.querySelector('.lobby-guess--players').innerHTML+=
           htmls.lobbyGuessPlayer
 
           const playerEl =document.querySelectorAll('.player--guess')
 
           playerEl[i].querySelector('p').textContent = players[i].name
-        }
+        
       })
 
       const trueBTNS = document.querySelectorAll('.player--guess--T')
@@ -121,45 +132,65 @@ const closeCard = function (e, turn) {
 
       trueBTNS.forEach(el=>{
         el.addEventListener('click',(e)=>{
-        const bgc = window.getComputedStyle(e.target).backgroundColor
+          playerGuessed++
+          // const bgc = window.getComputedStyle(e.target).backgroundColor
+          // e.target.parentElement.style.backgroundColor = bgc
+          spreadColor(e)
+          e.target.parentElement.querySelector('.player--guess--L').style.display = 'none'
 
-        e.target.parentElement.style.backgroundColor = bgc
-        e.target.parentElement.querySelector('.player--guess--L').style.display = 'none'
+          if(playerGuessed== players.length){
+            reveal(e)
+          }
       })
       })
 
-        lieBTNS.forEach(el=>{
-        el.addEventListener('click',(e)=>{
-        const bgc = window.getComputedStyle(e.target).backgroundColor
-
-        e.target.parentElement.style.backgroundColor = bgc
+      lieBTNS.forEach(el=>{
+      el.addEventListener('click',(e)=>{
+        playerGuessed++
+        // const bgc = window.getComputedStyle(e.target).backgroundColor
+        // e.target.parentElement.style.backgroundColor = bgc
+        spreadColor(e)
         e.target.parentElement.querySelector('.player--guess--T').style.display = 'none'
+        if(playerGuessed== players.length){
+          reveal(e)
+        }
       })
-      })
-
+    })
     }, 2000); //animation timer (temp)
-  }, 2000);
 
-        // document
-      //   .querySelector(".true-lie")
-      //   .querySelector(".player_name").innerHTML = `Time to guess!<br>
-      // ${playersInLobby()[turn - 1].name}, was it a truth, or was it a lie?`;
+}
 
-      // let targetP = document
-      //   .querySelector(".true-lie")
-      //   .querySelector(".true-lie--countdown");
+const reveal = function(e){
+  page.innerHTML = htmls.trueOrLie
 
-      // let trueLieIntervalID = setInterval(() => {
-      //   var seconds = targetP.textContent;
-      //   targetP.textContent--; //lol
+  const workingArea =   document
+    .querySelector(".true-lie")
 
-      //   seconds - 1 == 0 && clearInterval(trueLieIntervalID) && endRaund();
+  workingArea.querySelector(".player_name").innerHTML = `
+    ${players[turn - 1].name}, would you tell as, was it a truth, or was it a lie?`;
 
-      //   activeCard.innerHTML = "";
 
-      //   seconds - 1 == 0 && targetP.textContent == 0 && introduceCard(e, turn);
-      // }, 100);
-};
+  workingArea.querySelectorAll('button').forEach(el=>{
+  el.addEventListener('click',(e)=>{
+    spreadColor(e) //maybe make it remove sibling?? hmmmm
+    if(e.target.className == "reveal-T"){
+      workingArea.querySelector('.reveal-L').style.display = "none"
+      workingArea.querySelector('.reveal-T').style.fontSize = '2rem'
+    }else{
+      workingArea.querySelector('.reveal-T').style.display = "none"
+      workingArea.querySelector('.reveal-L').style.fontSize = '2rem' //e.target?
+    }
+  })
+  })
+
+  workingArea.querySelectorAll('button').forEach(el=>{
+    el.addEventListener('click',()=>{
+      setTimeout(()=>{
+      introduceCard(e,turn)
+      },2000)
+    })
+  })
+}
 
 const cardRemoved = function () {
   page.querySelector(".card-container").classList.add("card-container--end");
