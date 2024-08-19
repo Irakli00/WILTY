@@ -608,7 +608,7 @@ html {
   }
 }
 
-@media screen and (min-width: 400px) {
+@media screen and (min-width: 400px) and (orientation: landscape) {
   .game-container,
   .lobby-container {
     margin-top: 12vh;
