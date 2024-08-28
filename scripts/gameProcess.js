@@ -1,21 +1,6 @@
 import { players, page, htmls, fakeStories, gameMinutes } from "./assets.js";
 
-// import { startBtnEvent } from "./startingPage.js";
-
-//make so that it shows 'NEXT PLAYER' before rendering next and 'FINAL PLAYER' at last one
-
 let turn = 0;
-
-// const players function () {
-//   const p = [];
-//   players.forEach((el) => {
-//     const idunno = String(el.name.trim()) == false;
-
-//     !idunno && p.push(el);
-//   });
-//   return p;
-// };
-
 
 const spreadColor = function(e){
     const bgc = window.getComputedStyle(e.target).backgroundColor
@@ -99,7 +84,6 @@ const closeCard = function (e, turn) {
   activeCard.classList.add("card-container--fin");
 
   activeCard.addEventListener("click", () => {
-    //cardRemoved();
     introduceCard(e, turn);
   });
 
@@ -151,8 +135,6 @@ const true_lieGuesses = function(e){
       lieBTNS.forEach(el=>{
       el.addEventListener('click',(e)=>{
         playerGuessed++
-        // const bgc = window.getComputedStyle(e.target).backgroundColor
-        // e.target.parentElement.style.backgroundColor = bgc
         spreadColor(e)
         e.target.parentElement.querySelector('.player--guess--T').style.display = 'none'
         if(playerGuessed== playersToGuess.length){
@@ -187,18 +169,27 @@ const reveal = function(e){
   })
   })
 
+
+  //introduce next card
   workingArea.querySelectorAll('button').forEach(el=>{
     el.addEventListener('click',()=>{
-      setTimeout(()=>{
+      if (turn == players.length) {
+        thatsAllFolks(e);
+        return;}
+
+      const area = document.querySelector('.true-lie')
+      area.style.backgroundColor = 'transparent'
+      area.innerHTML = `<p class="next">${(turn+1 == players.length)?"Final":"Next"} Player</p>`     
+
+    setTimeout(()=>{
       introduceCard(e,turn)
-      },2000)
+    },2000)
     })
   })
 }
 
 const cardRemoved = function () {
   page.querySelector(".card-container").classList.add("card-container--end");
-
 };
 
 const thatsAllFolks = function (e) {

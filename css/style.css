@@ -170,6 +170,24 @@ html {
   }
 }
 
+@keyframes next-player {
+  0%{
+    opacity: 1;
+  }
+  /* 50%{
+    font-size: 12rem;
+  } */
+  100%{
+    font-size: 15rem;
+    opacity: 0;
+  }
+}
+
+.next{
+  color: var(--white-tint);
+  animation: next-player forwards 2s ease;
+}
+
 .demo {
   font-weight: 600;
   background-color: var(--dark-yellow);
