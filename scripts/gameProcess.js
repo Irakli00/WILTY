@@ -31,17 +31,17 @@ const startCountdown = function (e, minutes) {
   }, 40);
 };
 
-const startGame = function (e, turn) {
+const startGame = function (e) {
   const startBTN = "startGameBTN";
 
   if (e.target.classList.contains(startBTN)) {
-    turn == 0;
+    turn = 0;
     introduceCard(e, turn);
   }
 };
 
 const introduceCard = function (e, turn) {
-  if (turn == players.length) {
+  if (turn === players.length) {
     thatsAllFolks(e);
     return;
   }
@@ -49,13 +49,19 @@ const introduceCard = function (e, turn) {
   console.log(players,turn);
   page.innerHTML = htmls.card;
 
+  if(players[turn]){
   page.querySelector(".player--name").textContent =
     players[turn].name + ":";
-  /* colors should be same as inputs */
+  /* colors should be same as inputs */}
+  else{
+    turn+=1
+    introduceCard(e,turn)
+  }
 };
 
 const cardReveal = function (e, turn) {
   const cardContainer = e.target.closest(".card-container--init");
+
   if (cardContainer) {
     cardContainer.classList.toggle("card-container--revealed");
 
@@ -65,7 +71,7 @@ const cardReveal = function (e, turn) {
     const random_I = Math.floor(Math.random() * fakeStories.length);
 
     cardContainer.querySelector(".card-story").textContent =
-      players[turn].story || fakeStories[random_I];
+    players[turn].story || fakeStories[random_I];    
 
     startCountdown(e, gameMinutes);
   }
@@ -199,5 +205,6 @@ const thatsAllFolks = function (e) {
 
 export const gameProgressionEvents = function (e) {
   startGame(e, turn);
+  //console.log(turn) //doesnt increase
   cardReveal(e, turn);
 };

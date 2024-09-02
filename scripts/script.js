@@ -9,8 +9,6 @@ let turn = 0;
 
 const startGame = function () {
   page.addEventListener("click", (e) => {
-    console.log(`-*-*-*-* ${e.target?.classList} *-*-*-*-`);
-
     startPageEvents(e);
     lobbyEvents(e);
     gameProgressionEvents(e, turn);

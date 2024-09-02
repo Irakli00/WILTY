@@ -24,21 +24,20 @@ const inputValueAccept = function (e) {
     ".player--input--input"
   ).value; //lol
 
-  if (inputAcceptBtn) {
+  if (inputAcceptBtn && inputValue) {
     const player = {
       name: `${inputValue}`,
       story: "",
     };
 
-    /*   players.push(player); */
     const i =
       +inputAcceptBtn.parentElement.parentElement.classList[1].slice(-1);
 
     players[i] = player;
 
-    console.log(players);
-
-additionalPlayerRender(e)
+    //console.log(players, players.length)
+    
+    players[0] && players.length>=2 && additionalPlayerRender(e)
     }
     
     /* see if repeats */
@@ -48,11 +47,16 @@ const additionalPlayerRender = function(e){
   //const players = document.querySelectorAll(".player");
 
   const lol = e.target.parentElement.parentElement
-  var i = lol.classList[1].slice(-1)
+  let i = lol.classList[1].slice(-1)
 
-  //console.log(lol.classList,i)
+  // if (i>=1){
+    
+  if(i == 0){
+    i=1
+  }
 
-  if (i>=1){
+  console.log(lol.classList,i)
+
     const htmlString = htmls.addPlayer[i]
     const parser = new DOMParser();
     const doc = parser.parseFromString(htmlString, 'text/html');
@@ -60,7 +64,7 @@ const additionalPlayerRender = function(e){
     element.classList.replace(`player--x`, `player--${+i+1}`)
 
     document.querySelector('.lobby-container').insertAdjacentElement('beforeend', element)
-  }
+  // }
 
 }
 
