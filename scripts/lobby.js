@@ -44,27 +44,29 @@ const inputValueAccept = function (e) {
   }
 
 const additionalPlayerRender = function(e){
-  //const players = document.querySelectorAll(".player");
+  if(players.length===6){
+    return
+  }
 
   const lol = e.target.parentElement.parentElement
   let i = lol.classList[1].slice(-1)
-
-  // if (i>=1){
     
   if(i == 0){
     i=1
   }
 
-  console.log(lol.classList,i)
+  const htmlString = htmls.addPlayer[i]
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(htmlString, 'text/html');
+  const element = doc.body.firstChild;
+  element.classList.replace(`player--x`, `player--${+i+1}`)
 
-    const htmlString = htmls.addPlayer[i]
-    const parser = new DOMParser();
-    const doc = parser.parseFromString(htmlString, 'text/html');
-    const element = doc.body.firstChild;
-    element.classList.replace(`player--x`, `player--${+i+1}`)
+  document.querySelector('.lobby-container').insertAdjacentElement('beforeend', element)
 
-    document.querySelector('.lobby-container').insertAdjacentElement('beforeend', element)
-  // }
+  document.querySelector('.lobby-container').scrollTo({
+    top: document.body.scrollHeight,
+    behavior: 'smooth'
+  });
 
 }
 

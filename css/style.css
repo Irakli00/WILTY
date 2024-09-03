@@ -504,7 +504,7 @@ html {
 
     overflow-y: scroll;
     /* margin-top: 24vh; */
-    max-height: 200px;
+    height: 200px;
     padding: 25px;
     gap: 10px;
   }

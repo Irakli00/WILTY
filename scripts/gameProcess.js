@@ -152,10 +152,10 @@ const true_lieGuesses = function(e){
 
 }
 
-const reveal = function(e){
+const reveal = function(e){ //shity overall
   page.innerHTML = htmls.trueOrLie
 
-  const workingArea =   document
+  const workingArea = document
     .querySelector(".true-lie")
 
   workingArea.querySelector(".player_name").innerHTML = `
@@ -176,7 +176,7 @@ const reveal = function(e){
   })
 
 
-  //introduce next card
+  //introduce next card (problematic)
   workingArea.querySelectorAll('button').forEach(el=>{
     el.addEventListener('click',()=>{
       if (turn == players.length) {
@@ -185,12 +185,14 @@ const reveal = function(e){
 
       const area = document.querySelector('.true-lie')
       area.style.backgroundColor = 'transparent'
-      area.innerHTML = `<p class="next">${(turn+1 == players.length)?"Final":"Next"} Player</p>`     
-
-    setTimeout(()=>{
-      introduceCard(e,turn)
-    },2000)
+      area.innerHTML = `<p class="next">${(turn+1 == players.length)?"Final":"Next"} Player</p>`   
+      
+              
+      setTimeout(()=>{
+        introduceCard(e,turn)
+      },2000)
     })
+
   })
 }
 

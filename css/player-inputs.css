@@ -1,3 +1,5 @@
+/* 1111 */
+
 .player--0 {
   border: 2px solid var(--white-tint);
   background-color: var(--secondary-blue);
@@ -14,7 +16,7 @@
   color: var(--darker-gray);
 }
 
-/* 1111 */
+/* 2222 */
 .player--1 {
   background-color: var(--greenish);
   border: 2px solid var(--dark-blue);
@@ -31,7 +33,7 @@
   color: var(--font-gray);
 }
 
-/* 2222 */
+/* 3333 */
 
 .player--2 {
   background-color: var(--dark-yellow);
@@ -40,10 +42,61 @@
 }
 
 .player--input--2 > div:last-child > ion-icon:first-of-type {
-  background-color: var(--darker-gray);
-  color: var(--dark-red);
+  background-color: var(--secondary-blue);
+  color: var(--darker-gray);
 }
 
 .player--input--2 > div:last-child > ion-icon:last-of-type {
   background-color: var(--darker-purple);
-  color: var(--font-gray);}
+  color: var(--white-tint);}
+  
+/* 4444 */
+
+.player--3 {
+  background-color: var(--darker-purple);
+  border: 2px solid var(--white-tint);
+  color: var(--white-tint);
+}
+
+.player--input--3 > div:last-child > ion-icon:first-of-type {
+  background-color: var(--greenish);
+  color: var(--dark-red);
+}
+
+.player--input--3 > div:last-child > ion-icon:last-of-type {
+  background-color: var(--dark-red);
+  color: var(--white-tint);}
+  
+/* 5555 */
+
+.player--4 {
+  background-color: var(--dark-red);
+  border: 2px solid var(--dark-yellow);
+  color: var(--dark-yellow);
+}
+
+.player--input--4 > div:last-child > ion-icon:first-of-type {
+  background-color: var(--darker-gray);
+  color: var(--dark-blue);
+}
+
+.player--input--4 > div:last-child > ion-icon:last-of-type {
+  background-color: var(--white-tint);
+  color: var(--darker-purple);}
+  
+/* 6666 */
+
+.player--5 {
+  background-color: var(--white-tint);
+  border: 2px solid var(--greenish);
+  color: var(--greenish);
+}
+
+.player--input--5 > div:last-child > ion-icon:first-of-type {
+  background-color: var(--secondary-blue);
+  color: var(--white-tint);
+}
+
+.player--input--5 > div:last-child > ion-icon:last-of-type {
+  background-color: var(--dark-yellow);
+  color: var(--darker-purple);}
