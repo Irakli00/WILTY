@@ -80,6 +80,36 @@
   margin: 0;
 }
 
+.rotate-phone-bro{
+  margin: 40vh auto ;
+  width: 50%;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  /* height: 75vh; */
+  text-align: center;
+
+  position: relative;
+}
+
+.rotate-phone-bro img{
+  /* height: 100%; */
+  width: 100%;
+  filter:invert();
+  animation: rotate-phone 2s infinite;
+  margin: auto;
+}
+
+.rotate-phone-bro::before{
+  content: 'Put your phone in landscape mode';
+  position: absolute;
+  z-index: 999;
+  color: var(--dark-blue);
+  opacity: 0.7;
+  font-weight: 900;
+  font-size: 4rem;
+}
+
 html {
   font-size: 62.5%;
   font-family: var(--main-font);
@@ -106,6 +136,17 @@ html {
   background-repeat: no-repeat;
   background-size: cover;
 } */
+
+@keyframes rotate-phone {
+  0%,100%{
+    transform: rotate(0);
+  }
+
+  50%,60%{
+    transform: rotate(90deg);
+  }
+  
+}
 
 @keyframes card-presented {
   from {

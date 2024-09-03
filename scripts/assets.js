@@ -1,6 +1,29 @@
 export const page = document.querySelector(".page");
 
 export const htmls = {
+  notLandscape : `
+        <div class="rotate-phone-bro">
+        <img src="./img/mobile-phone-icon.webp" alt="" >
+      </div>`
+,
+
+startingPage:`
+    <aside>
+      <p class="demo">DEMO</p>
+      </aside>
+      <section class="game-section">
+      <div class="game-container">
+        <div>
+          <button class="play-btn">PLAY</button>
+        </div>
+        <div>
+          <button class="rules-btn">Rules</button>
+          <button class="details-btn">?</button>
+        </div>
+      </div>
+      </section>
+      `,
+
   aside: `
   <aside>
     <p>
