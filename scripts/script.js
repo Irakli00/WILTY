@@ -8,18 +8,21 @@ let turn = 0;
 /* demo sign dissapears */
 
 const putInLandscape = function(){
-    if (!window.matchMedia("(orientation: landscape)").matches) {
-      page.innerHTML = htmls.notLandscape
-    }else{
-      page.innerHTML= htmls.startingPage
+  if (!window.matchMedia("(orientation: landscape)").matches) {
+    page.innerHTML = htmls.notLandscape
+  }else{
+    if(page.querySelector('.rotate-phone-bro')){
+      page.innerHTML= htmls.startingPage 
     }
+  }
 }
 
 const startGame = function () {
   if (!window.matchMedia("(orientation: landscape)").matches) {
-    page.innerHTML = htmls.notLandscape}
+    page.innerHTML = htmls.notLandscape
+  }
 
-  window.addEventListener('orientationchange',()=>putInLandscape())
+  window.addEventListener('resize',()=>putInLandscape())
 
   page.addEventListener("click", (e) => {
     startPageEvents(e);
@@ -27,5 +30,4 @@ const startGame = function () {
     gameProgressionEvents(e, turn);
   });
 };
-
 startGame();
