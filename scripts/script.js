@@ -18,8 +18,8 @@ const putInLandscape = function(){
 const startGame = function () {
   if (!window.matchMedia("(orientation: landscape)").matches) {
     page.innerHTML = htmls.notLandscape}
-    
-  window.addEventListener('resize',()=>putInLandscape())
+
+  window.addEventListener('orientationchange',()=>putInLandscape())
 
   page.addEventListener("click", (e) => {
     startPageEvents(e);
