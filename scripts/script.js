@@ -7,7 +7,7 @@ let turn = 0;
 
 /* demo sign dissapears */
 
-const putInLandscape = function(){
+const putInLandscape = function(){ //ოპაციტყ ის გოოდ ბუტ მაკე ბტნს უნინტერაცტაბლე ტოო (იფ ჰეიგჰტ 0 იზნტ ენაუგჰ)
   if (!window.matchMedia("(orientation: landscape)").matches) {
     console.log('before',[...page.children]);
 
@@ -62,4 +62,20 @@ const startGame = function () {
     gameProgressionEvents(e, turn);
   });
 };
+
+document.querySelector('.fullscreen').addEventListener('click',()=>{
+
+  const elem = document.documentElement; // Selects the whole document (the HTML element)
+  
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.mozRequestFullScreen) { // Firefox
+    elem.mozRequestFullScreen();
+  } else if (elem.webkitRequestFullscreen) { // Chrome, Safari and Opera
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { // IE/Edge
+    elem.msRequestFullscreen();
+  }
+})
+
 startGame();
