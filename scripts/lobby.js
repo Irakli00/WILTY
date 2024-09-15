@@ -5,9 +5,11 @@ const inputReveal = function (e) {
 
   const targetToChange = e.target.closest(".player-tobe");
 
+
   if (targetToChange && targetToChange.innerHTML) {
     players.forEach((el, i) => {
-      if (el == targetToChange) {
+      if (el === targetToChange) {
+        targetToChange.classList.remove('player-tobe') //so it doesnt put inputs over and over again
 
         targetToChange.innerHTML = htmls.playerInputs[i];
 
@@ -35,13 +37,19 @@ const inputValueAccept = function (e) {
 
     players[i] = player;
 
-    //console.log(players, players.length)
-    
+    //console.log(players, players.length)    
     players[0] && players.length>=2 && additionalPlayerRender(e)
     }
     
     /* see if repeats */
   }
+
+const inputValueClear = function(e){
+  const xBtn = e.target.closest('.clearInput')
+
+  if(xBtn){
+    page.querySelector('.player--input').querySelector('.player--input--input').value = ''}
+}
 
 const additionalPlayerRender = function(e){
   if(players.length===6){
@@ -93,5 +101,6 @@ const displayPlayer = function (e) {
 export const lobbyEvents = function (e) {
   inputReveal(e);
   inputValueAccept(e);
+  inputValueClear(e)
   displayPlayer(e);
 };

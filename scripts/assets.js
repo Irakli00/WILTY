@@ -108,7 +108,7 @@ startingPage:`
     </div>
     <div>
       <ion-icon name="checkmark-outline" class="accept-input accept-input--0"></ion-icon>
-      <ion-icon name="close-outline"></ion-icon>
+      <ion-icon name="close-outline" class="clearInput"></ion-icon>
     </div>
   </div>
   `,
@@ -120,7 +120,7 @@ startingPage:`
     </div>
     <div>
       <ion-icon name="checkmark-outline" class="accept-input accept-input--1"></ion-icon>
-      <ion-icon name="close-outline"></ion-icon>
+      <ion-icon name="close-outline" class="clearInput"></ion-icon>
     </div>
   </div>
   `,
@@ -132,7 +132,7 @@ startingPage:`
     </div>
     <div>
       <ion-icon name="checkmark-outline" class="accept-input accept-input--2"></ion-icon>
-      <ion-icon name="close-outline"></ion-icon>
+      <ion-icon name="close-outline" class="clearInput"></ion-icon>
     </div>
   </div>
   `,
@@ -144,7 +144,7 @@ startingPage:`
     </div>
     <div>
       <ion-icon name="checkmark-outline" class="accept-input accept-input--3"></ion-icon>
-      <ion-icon name="close-outline"></ion-icon>
+      <ion-icon name="close-outline" class="clearInput"></ion-icon>
     </div>
   </div>
   `,
@@ -156,7 +156,7 @@ startingPage:`
     </div>
     <div>
       <ion-icon name="checkmark-outline" class="accept-input accept-input--4"></ion-icon>
-      <ion-icon name="close-outline"></ion-icon>
+      <ion-icon name="close-outline" class="clearInput"></ion-icon>
     </div>
   </div>
   `,
@@ -168,7 +168,7 @@ startingPage:`
     </div>
     <div>
       <ion-icon name="checkmark-outline" class="accept-input accept-input--5"></ion-icon>
-      <ion-icon name="close-outline"></ion-icon>
+      <ion-icon name="close-outline" class="clearInput"></ion-icon>
     </div>
   </div>
   `

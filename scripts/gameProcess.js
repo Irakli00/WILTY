@@ -27,8 +27,8 @@ const startCountdown = function (e, minutes) {
         clearInterval(intervalID);
         endRaund(e);
       }
-    }, 10);
-  }, 40);
+    }, 1000);
+  }, 5000);
 };
 
 const startGame = function (e) {
