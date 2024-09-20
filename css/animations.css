@@ -1,0 +1,121 @@
+
+@keyframes rotate-phone {
+  0%,100%{
+    transform: rotate(0);
+  }
+
+  50%,60%{
+    transform: rotate(90deg);
+  }
+  
+}
+
+@keyframes card-presented {
+  from {
+    transform: translate(1000px);
+  }
+  to {
+    transform: rotateX(180deg);
+  }
+}
+
+@keyframes card-revealed {
+  from {
+    transform: rotateX(180deg);
+  }
+  to {
+    transform: rotateX(0);
+    background-image: none;
+    background-color: #fff;
+    color: var(--dark-blue);
+  }
+}
+
+@keyframes card-closed {
+  from {
+    transform: rotateX(0);
+    background-image: none;
+    background-color: #fff;
+    color: var(--dark-blue);
+  }
+  to {
+    transform: rotateX(180deg);
+  }
+}
+
+@keyframes card-removed {
+  from {
+    transform: rotateX(180deg);
+  }
+  to {
+    transform: translateX(-1000px);
+  }
+}
+
+@keyframes background-color-change {
+  0%,
+  100% {
+    background-color: var(--dark-blue);
+    color: var(--white-tint);
+  }
+  20%,
+  80% {
+    background-color: var(--secondary-blue);
+    color: var(--silver-gray);
+  }
+  40% {
+    background-color: var(--greenish);
+    color: #000000;
+  }
+  60% {
+    background-color: var(--dark-yellow);
+    color: var(--dark-blue);
+  }
+}
+
+@keyframes next-player {
+  0%{
+    opacity: 1;
+  }
+  /* 50%{
+    font-size: 12rem;
+  } */
+  100%{
+    font-size: 12rem;
+    opacity: 0;
+  }
+}
+
+.rotate-phone-bro img{
+  /* height: 100%; */
+  width: 100%;
+  filter:invert();
+  animation: rotate-phone 2s infinite;
+  margin: auto;
+}
+
+
+.card-container {
+  animation: card-presented 2s forwards;
+}
+
+.card-container.card-container--revealed {
+  animation: card-revealed 2s forwards;
+}
+
+.card-container--fin {
+  animation: card-closed 2s forwards;
+}
+
+.card-container--end {
+  animation: card-removed 2s forwards;
+}
+
+.next{
+  animation: next-player forwards 2s ease;
+}
+
+
+.start-over {
+  animation: background-color-change 45s infinite;
+}

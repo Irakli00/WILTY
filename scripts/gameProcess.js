@@ -27,7 +27,7 @@ const startCountdown = function (e, minutes) {
         clearInterval(intervalID);
         endRaund(e);
       }
-    }, 1000);
+    }, 10);
   }, 5000);
 };
 

@@ -98,7 +98,7 @@
   filter:invert();
   animation: rotate-phone 2s infinite;
   margin: auto;
-}
+} /* ----------------------- */
 
 .rotate-phone-bro::before{
   content: 'Put your phone in landscape mode';
@@ -137,96 +137,9 @@ html {
   background-size: cover;
 } */
 
-@keyframes rotate-phone {
-  0%,100%{
-    transform: rotate(0);
-  }
-
-  50%,60%{
-    transform: rotate(90deg);
-  }
-  
-}
-
-@keyframes card-presented {
-  from {
-    transform: translate(1000px);
-  }
-  to {
-    transform: rotateX(180deg);
-  }
-}
-
-@keyframes card-revealed {
-  from {
-    transform: rotateX(180deg);
-  }
-  to {
-    transform: rotateX(0);
-    background-image: none;
-    background-color: #fff;
-    color: var(--dark-blue);
-  }
-}
-
-@keyframes card-closed {
-  from {
-    transform: rotateX(0);
-    background-image: none;
-    background-color: #fff;
-    color: var(--dark-blue);
-  }
-  to {
-    transform: rotateX(180deg);
-  }
-}
-
-@keyframes card-removed {
-  from {
-    transform: rotateX(180deg);
-  }
-  to {
-    transform: translateX(-1000px);
-  }
-}
-
-@keyframes background-color-change {
-  0%,
-  100% {
-    background-color: var(--dark-blue);
-    color: var(--white-tint);
-  }
-  20%,
-  80% {
-    background-color: var(--secondary-blue);
-    color: var(--silver-gray);
-  }
-  40% {
-    background-color: var(--greenish);
-    color: #000000;
-  }
-  60% {
-    background-color: var(--dark-yellow);
-    color: var(--dark-blue);
-  }
-}
-
-@keyframes next-player {
-  0%{
-    opacity: 1;
-  }
-  /* 50%{
-    font-size: 12rem;
-  } */
-  100%{
-    font-size: 12rem;
-    opacity: 0;
-  }
-}
 
 .next{
   color: var(--white-tint);
-  animation: next-player forwards 2s ease;
 }
 
 .demo {
@@ -244,16 +157,15 @@ html {
 .game-container {
   background-color: #1a6578e6;
   border-radius: 2px;
-
-
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-between
 }
 
 .game-section{
   max-width: 70%;
   margin: auto;
+  margin-top: 20vh;
 }
 
 .play-btn {
@@ -475,7 +387,6 @@ html {
 
 .start-over {
   margin: 10px;
-  animation: background-color-change 45s infinite;
 }
 
 .startGameBTN{
@@ -488,11 +399,15 @@ html {
   font-weight: 500;
 }
 
-@media screen and (min-width: 576px) and (orientation: landscape) {
+@media screen and (max-width: 1000px) and (orientation: landscape) {
   .demo {
     top: 25px;
     left: -55px;
     transform: rotate(-45deg);
+  }
+
+  .game-section{
+    margin-top: 14vh;
   }
 
   .game-container {
@@ -505,8 +420,8 @@ html {
 
     /*  */
     /* margin-top: 24vh; */
-    max-height: 250px;
-    /*  */
+/*     max-height: 250px;
+ */    /*  */
   }
 
   .play-btn {
@@ -550,7 +465,7 @@ html {
     gap: 10px;
   }
 
-  .lobby-section > button {
+  .startGameBTN {
     display: block;
     margin: 20px auto;
   } /* latter */
@@ -597,40 +512,6 @@ html {
     border-radius: 2px;
   }
 
-  /* 0000 */
-  /* .player--0 {
-    border: 2px solid var(--white-tint);
-    background-color: var(--secondary-blue);
-    color: var(--white-tint);
-  }
-
-  .player--input--0 > div:last-child > ion-icon:first-of-type {
-    background-color: var(--dark-yellow);
-    color: var(--main-purple);
-  }
-
-  .player--input--0 > div:last-child > ion-icon:last-of-type {
-    background-color: var(--dark-red);
-    color: var(--darker-gray);
-  }
-
-  /* 1111 */
-  .player--1 {
-    background-color: var(--greenish);
-    border: 2px solid var(--dark-blue);
-    color: #000000;
-  }
-
-  .player--input--1 > div:last-child > ion-icon:first-of-type {
-    background-color: var(--darker-gray);
-    color: var(--dark-red);
-  }
-
-  .player--input--1 > div:last-child > ion-icon:last-of-type {
-    background-color: var(--darker-purple);
-    color: var(--font-gray);
-  } 
-
   .card-container {
     background-image: url(../img/card--blue.PNG);
     background-size: 90%;
@@ -653,34 +534,74 @@ html {
     border-radius: 2px;
 
     min-height: 175px;
-    animation: card-presented 2s forwards;
 
     /*  */
     color: transparent;
     /*  */
   }
-
-  .card-container.card-container--revealed {
-    animation: card-revealed 2s forwards;
-  }
-
-  .card-container--fin {
-    animation: card-closed 2s forwards;
-  }
-
-  .card-container--end {
-    animation: card-removed 2s forwards;
-  }
 }
 
-@media screen and (min-width: 400px) and (orientation: landscape) {
+@media screen and (max-width: 725px) and (orientation: landscape) {
+
+  .card-container,.game-section,.lobby-container{
+    max-width: unset;
+    width: 75vw;
+  }
+
+  .demo{
+    left: -70px;
+    top: 15px;
+  }
+
+  .game-container button{
+    padding: 7%;
+    border-radius: 6px;
+  }
+
   .game-section,
   .lobby-section {
     margin-top: 15vh;
   }
 
+  .player{
+    font-weight: 500;
+  }
+
+  .player--input--input{
+    width: 35vw;
+    padding: 5px;
+    font-weight: 500;
+  }
+
+  .startGameBTN{
+    margin: 5px auto;
+  }
+
   .card-section {
-    margin-top: 15vh;
-    gap: 5vh;
+    margin-top: 5vh;
+    gap: 9vh;
+  }
+
+  .countdown{
+    left: 25px;
+  }
+
+  .player--name{
+    font-weight: bolder;
+    padding: 5px;
+    height: unset;
+  }
+
+  .card-story{
+    font-size: 2.4rem;
+  }
+
+  .player--guess p {
+    font-size: 2.2rem;
+    text-decoration: underline;
+  }
+
+  .true-lie p {
+    font-size: 3.6rem;
   }
 }
