@@ -81,7 +81,7 @@
 }
 
 .rotate-phone-bro{
-  margin: 25vh auto ;
+  margin: 12vh auto ;
   width: 50%;
   display: grid;
   justify-content: center;
@@ -152,26 +152,41 @@ html {
   position: absolute;
   width: 200px;
   text-align: center;
+
+
+  left: -55px;
+  top: 25px;
+  transform: rotate(-45deg);
 }
 
 .game-container {
+  padding: 5vh;
+  gap: 5vh;
+
+
   background-color: #1a6578e6;
-  border-radius: 2px;
+  border-radius: 8px;
   display: flex;
   flex-direction: column;
   justify-content: space-between
 }
 
+.game-container > div:last-child {
+  gap: 20px;
+  grid-template-columns: 80fr 20fr;
+}
+
 .game-section{
   max-width: 70%;
   margin: auto;
-  margin-top: 20vh;
+  margin-top: 15vh;
 }
 
 .play-btn {
+  padding: 7vh;
   /*  */
   width: 100%;
-  font-size: 4rem;
+  font-size: 5rem;
   /*  */
 
   font-weight: 600;
@@ -188,6 +203,11 @@ html {
   height: 100%;
 }
 
+.rules-btn,.details-btn{
+  padding: 3vh;
+  font-size: 2rem;
+}
+
 .rules-btn {
   background-color: var(--dark-red);
   color: var(--darker-gray);
@@ -197,6 +217,11 @@ html {
   transition: all 0.2s;
   border: none;
   /*  */
+}
+
+.play-btn:hover{
+  background-color: var(--greenish);
+  color: var(--white-tint);
 }
 
 .rules-btn:hover {
@@ -403,7 +428,6 @@ html {
   .demo {
     top: 25px;
     left: -55px;
-    transform: rotate(-45deg);
   }
 
   .game-section{
@@ -433,7 +457,6 @@ html {
 
   .game-container > div:last-child {
     gap: 20px;
-    grid-template-columns: 80fr 20fr;
   }
 
   .rules-btn,
@@ -454,12 +477,11 @@ html {
   .lobby-container {
     background-color: #eeedeebc;
     max-width: 70%;
-    margin: auto;
+    margin: 10vh auto 0 auto;
     display: flex;
     flex-direction: column;
 
     overflow-y: scroll;
-    /* margin-top: 24vh; */
     height: 200px;
     padding: 25px;
     gap: 10px;
@@ -467,7 +489,7 @@ html {
 
   .startGameBTN {
     display: block;
-    margin: 20px auto;
+    margin: 10px auto;
   } /* latter */
 
   .lobby-container ion-icon {
@@ -538,6 +560,10 @@ html {
     /*  */
     color: transparent;
     /*  */
+  }
+
+  .card-section{
+    gap: 5vh;
   }
 }
 
