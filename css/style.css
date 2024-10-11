@@ -245,6 +245,98 @@ html {
   color: var(--darker-purple);
 }
 
+.lobby-container{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin: 15vh auto 3vh;
+  max-width: 70%;
+}/* temp */
+
+.player {
+  display: flex;
+  justify-content: space-between;
+  padding: 25px;
+  font-size: 2.5em;
+}
+
+.player > div:first-child,
+.player--input > div:first-child {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  height: 35px;
+  width: 100%;
+}
+
+/*  */
+.img-align{
+  display: grid;
+  justify-content: center;
+}
+/*  */
+
+.input-btns{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+
+.player--input--input{
+  width: 85%;
+  height: 100%;
+  font-size: 2.5rem;
+}
+
+.startGameBTN{
+  background-color: var(--greenish);
+  border: none;
+  padding: 3vh 4vh;
+  border-radius: 5px;
+  cursor: pointer;
+  color: var(--dark-blue);
+  font-weight: 500;
+
+  display: block;
+  margin: 5px auto;
+
+}
+
+
+.lobby-container ion-icon {
+  font-size: 3rem;
+}
+
+.card-container {
+  background-image: url(../img/card--blue.PNG);
+  background-size: 90%;
+  background-position: center;
+  height: 35vh;
+
+  /*  background-repeat: no-repeat; */
+  border: 2px solid var(--white-tint);
+
+  width: 60%;
+  margin: 0 auto;
+
+  display: grid;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+  font-size: 2.5rem;
+
+  border-radius: 7px;
+
+  min-height: 175px;
+
+  /*  */
+  color: transparent;
+  /*  */
+}
+
 .card-story {
   display: inline-block;
   padding-inline: 1rem;
@@ -264,6 +356,7 @@ html {
   gap: 12vh;
   overflow: hidden;
 }
+
 
 .countdown {
   position: absolute;
@@ -414,15 +507,6 @@ html {
   margin: 10px;
 }
 
-.startGameBTN{
-  background-color: var(--greenish);
-  border: none;
-  padding: 4vh;
-  border-radius: 5px;
-  cursor: pointer;
-  color: var(--dark-blue);
-  font-weight: 500;
-}
 
 @media screen and (max-width: 1000px) and (orientation: landscape) {
   .demo {
@@ -486,40 +570,35 @@ html {
     padding: 25px;
     gap: 10px;
   }
-
+/* 
   .startGameBTN {
     display: block;
     margin: 10px auto;
-  } /* latter */
+  } */
+   /* latter */
 
-  .lobby-container ion-icon {
+  /* .lobby-container ion-icon {
     height: 2.5rem;
     width: 2.5rem;
-  }
+  } */
 
   .player {
-    display: flex;
-    justify-content: space-between;
-
     padding: 15px;
     font-size: 1.5rem;
   }
 
   .player > div:first-child,
   .player--input > div:first-child {
-    display: flex;
-    align-items: center;
-
     gap: 15px;
   }
 
-  .player--input {
+  /* .player--input {
     display: flex;
     justify-content: space-between;
     width: 100%;
 
     font-size: 1.5rem;
-  }
+  } */
 
   .player--input > div:last-of-type {
     display: flex;
@@ -533,14 +612,14 @@ html {
     padding: 3px;
     border-radius: 2px;
   }
-
+/* 
   .card-container {
     background-image: url(../img/card--blue.PNG);
     background-size: 90%;
     background-position: center;
     height: 15vh;
 
-    /*  background-repeat: no-repeat; */
+
     border: 2px solid var(--white-tint);
 
     width: 60%;
@@ -557,10 +636,10 @@ html {
 
     min-height: 175px;
 
-    /*  */
+  
     color: transparent;
-    /*  */
-  }
+
+  } */
 
   .card-section{
     gap: 5vh;
@@ -597,10 +676,6 @@ html {
     width: 35vw;
     padding: 5px;
     font-weight: 500;
-  }
-
-  .startGameBTN{
-    margin: 5px auto;
   }
 
   .card-section {

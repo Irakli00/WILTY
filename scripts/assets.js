@@ -47,7 +47,7 @@ startingPage:`
   addPlayer:[
     `<div class="player player-tobe player--x">
         <div>
-          <div><ion-icon name="person-outline"></ion-icon></div>
+          <div class="img-align"><ion-icon name="person-outline"></ion-icon></div>
           <div><p>Add a Player</p></div>
         </div>
         <div><ion-icon name="add-outline"></ion-icon></div>
@@ -55,7 +55,7 @@ startingPage:`
       `
       <div class="player player-tobe player--x">
         <div>
-          <div><ion-icon name="person-outline"></ion-icon></div>
+          <div class="img-align"><ion-icon name="person-outline"></ion-icon></div>
           <div><p>Add a Player</p></div>
         </div>
         <div><ion-icon name="add-outline"></ion-icon></div>
@@ -64,7 +64,7 @@ startingPage:`
       `
       <div class="player player-tobe player--x">
         <div>
-          <div><ion-icon name="person-outline"></ion-icon></div>
+          <div class="img-align"><ion-icon name="person-outline"></ion-icon></div>
           <div><p>Add a Player</p></div>
         </div>
         <div><ion-icon name="add-outline"></ion-icon></div>
@@ -73,7 +73,7 @@ startingPage:`
       `
       <div class="player player-tobe player--x">
         <div>
-          <div><ion-icon name="person-outline"></ion-icon></div>
+          <div class="img-align"><ion-icon name="person-outline"></ion-icon></div>
           <div><p>Add a Player</p></div>
         </div>
         <div><ion-icon name="add-outline"></ion-icon></div>
@@ -82,7 +82,7 @@ startingPage:`
       `
       <div class="player player-tobe player--x">
         <div>
-          <div><ion-icon name="person-outline"></ion-icon></div>
+          <div class="img-align"><ion-icon name="person-outline"></ion-icon></div>
           <div><p>Add a Player</p></div>
         </div>
         <div><ion-icon name="add-outline"></ion-icon></div>
@@ -91,13 +91,13 @@ startingPage:`
       `
       <div class="player player-tobe player--x">
         <div>
-          <div><ion-icon name="person-outline"></ion-icon></div>
+          <div class="img-align"><ion-icon name="person-outline"></ion-icon></div>
           <div><p>Add a Player</p></div>
         </div>
         <div><ion-icon name="add-outline"></ion-icon></div>
       </div>
       `
-  ],
+  ],//why the same templates??
 
   playerInputs: [
     `  
@@ -106,7 +106,7 @@ startingPage:`
       <ion-icon name="person-outline"></ion-icon>
       <input type="text" class="player--input--input" />
     </div>
-    <div>
+    <div class="input-btns" >
       <ion-icon name="checkmark-outline" class="accept-input accept-input--0"></ion-icon>
       <ion-icon name="close-outline" class="clearInput"></ion-icon>
     </div>
@@ -118,7 +118,7 @@ startingPage:`
       <ion-icon name="person-outline"></ion-icon>
       <input type="text" class="player--input--input" />
     </div>
-    <div>
+    <div class="input-btns" >
       <ion-icon name="checkmark-outline" class="accept-input accept-input--1"></ion-icon>
       <ion-icon name="close-outline" class="clearInput"></ion-icon>
     </div>
@@ -130,7 +130,7 @@ startingPage:`
       <ion-icon name="person-outline"></ion-icon>
       <input type="text" class="player--input--input" />
     </div>
-    <div>
+    <div class="input-btns" >
       <ion-icon name="checkmark-outline" class="accept-input accept-input--2"></ion-icon>
       <ion-icon name="close-outline" class="clearInput"></ion-icon>
     </div>
@@ -142,7 +142,7 @@ startingPage:`
       <ion-icon name="person-outline"></ion-icon>
       <input type="text" class="player--input--input" />
     </div>
-    <div>
+    <div class="input-btns" >
       <ion-icon name="checkmark-outline" class="accept-input accept-input--3"></ion-icon>
       <ion-icon name="close-outline" class="clearInput"></ion-icon>
     </div>
@@ -154,7 +154,7 @@ startingPage:`
       <ion-icon name="person-outline"></ion-icon>
       <input type="text" class="player--input--input" />
     </div>
-    <div>
+    <div class="input-btns" >
       <ion-icon name="checkmark-outline" class="accept-input accept-input--4"></ion-icon>
       <ion-icon name="close-outline" class="clearInput"></ion-icon>
     </div>
@@ -166,7 +166,7 @@ startingPage:`
       <ion-icon name="person-outline"></ion-icon>
       <input type="text" class="player--input--input" />
     </div>
-    <div>
+    <div class="input-btns" >
       <ion-icon name="checkmark-outline" class="accept-input accept-input--5"></ion-icon>
       <ion-icon name="close-outline" class="clearInput"></ion-icon>
     </div>

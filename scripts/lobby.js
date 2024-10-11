@@ -30,7 +30,7 @@ const inputValueAccept = function (e) {
     const player = {
       name: `${inputValue}`,
       story: "",
-    };
+    }
 
     const i =
       +inputAcceptBtn.parentElement.parentElement.classList[1].slice(-1);
@@ -42,6 +42,20 @@ const inputValueAccept = function (e) {
     }
     
     /* see if repeats */
+
+    //enter key event
+    page.querySelectorAll(".player--input--input").forEach(el=>{
+      el.addEventListener("keydown",(e)=>{
+        if(e.key == "Enter"){
+          // Find the associated accept button
+          const inputAcceptBtn = e.target.closest(".player--input").querySelector(".accept-input");
+          if (inputAcceptBtn) {
+          // Simulate a click event on the accept button to trigger the inputValueAccept function
+          inputAcceptBtn.click();
+        }
+      }})
+    })
+
   }
 
 const inputValueClear = function(e){
@@ -89,7 +103,7 @@ const displayPlayer = function (e) {
     //console.log(container[i], players[i], players[players.length - 1], i);
 
     container[i].innerHTML = `<div>
-    <div><ion-icon name="person-outline"></ion-icon></div>
+    <div class="img-align"><ion-icon name="person-outline"></ion-icon></div>
     <div><p>${players[i].name}</p></div>`;
 
 
